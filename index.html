@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ademir Rodrigues | Tráfego Pago</title>
+  <meta name="description" content="Ademir Rodrigues - Social Media e Gestor de Tráfego. 34 anos, casado, pai de dois filhos, cristão, 7 anos de mercado. Diagnóstico e plano de ação para negócios locais." />
+
+  <style>
+    :root{
+      --bg0:#05060a;
+      --bg1:#090b12;
+      --card:#0c0f1a;
+      --card2:#0f1324;
+      --text:#f3f4f6;
+      --muted:#a7afc0;
+      --muted2:#7b859c;
+      --line:rgba(148,163,184,.16);
+      --line2:rgba(148,163,184,.24);
+
+      --accent:#2bff8a;
+      --accent2:#18d56b;
+      --accentSoft: rgba(43,255,138,.14);
+
+      --warn:#ff4d4d;
+      --warn2:#ff7a7a;
+      --shadow: 0 24px 80px rgba(0,0,0,.65);
+      --shadow2: 0 16px 50px rgba(0,0,0,.55);
+
+      --radius: 22px;
+      --radius2: 16px;
+      --radius3: 12px;
+      --max: 1140px;
+
+      --ease: cubic-bezier(.2,.9,.2,1);
+    }
+
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    html,body{ height:100%; }
+    body{
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      background:
+        radial-gradient(1200px 800px at 20% 0%, rgba(43,255,138,.14), transparent 60%),
+        radial-gradient(900px 600px at 90% 20%, rgba(255,77,77,.10), transparent 60%),
+        radial-gradient(900px 900px at 50% 120%, rgba(56,189,248,.09), transparent 55%),
+        linear-gradient(180deg, var(--bg1), var(--bg0));
+      color: var(--text);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      scroll-behavior: smooth;
+      overflow-x:hidden;
+    }
+
+    a{ color:inherit; text-decoration:none; }
+    .wrap{ max-width: var(--max); margin: 0 auto; padding: 0 18px; }
+
+    /* NAV */
+    header{
+      position: sticky; top:0; z-index: 40;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(180deg, rgba(5,6,10,.86), rgba(5,6,10,.55));
+      border-bottom: 1px solid var(--line);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding: 14px 0;
+      gap: 14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      min-width: 240px;
+    }
+    .badge{
+      width: 36px; height: 36px; border-radius: 999px;
+      display:grid; place-items:center;
+      border: 1px solid rgba(43,255,138,.8);
+      box-shadow: 0 0 24px rgba(43,255,138,.22);
+      background: radial-gradient(circle at 30% 0%, rgba(43,255,138,.35), rgba(5,6,10,.9) 60%);
+      font-weight: 800;
+      letter-spacing: .02em;
+      color: var(--accent);
+      user-select:none;
+    }
+    .brand .t1{ font-weight: 700; font-size: 14px; letter-spacing:.02em; }
+    .brand .t2{ font-size: 12px; color: var(--muted); margin-top: 1px; }
+
+    .links{
+      display:flex; align-items:center; gap: 18px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .links a{
+      padding: 10px 8px;
+      border-radius: 999px;
+      transition: .25s var(--ease);
+    }
+    .links a:hover{
+      color: var(--text);
+      background: rgba(148,163,184,.08);
+      transform: translateY(-1px);
+    }
+
+    .nav-cta{ display:flex; gap:10px; align-items:center; }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      padding: 11px 16px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      border: 1px solid transparent;
+      transition: .25s var(--ease);
+      cursor:pointer;
+      white-space: nowrap;
+      user-select:none;
+    }
+    .btn svg{ width:16px; height:16px; }
+    .btn-ghost{
+      background: rgba(148,163,184,.08);
+      border-color: rgba(148,163,184,.18);
+      color: var(--text);
+    }
+    .btn-ghost:hover{
+      transform: translateY(-1px);
+      border-color: rgba(43,255,138,.45);
+      box-shadow: 0 0 0 3px rgba(43,255,138,.08);
+    }
+    .btn-accent{
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color:#07110a;
+      border-color: rgba(43,255,138,.5);
+      box-shadow: 0 0 34px rgba(43,255,138,.20);
+    }
+    .btn-accent:hover{
+      transform: translateY(-1px) scale(1.01);
+      box-shadow: 0 0 48px rgba(43,255,138,.30);
+      filter: brightness(1.03);
+    }
+
+    .hamb{
+      display:none;
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      border: 1px solid rgba(148,163,184,.18);
+      background: rgba(148,163,184,.08);
+      color: var(--text);
+      align-items:center; justify-content:center;
+      cursor:pointer;
+      transition: .25s var(--ease);
+    }
+    .hamb:hover{ transform: translateY(-1px); border-color: rgba(43,255,138,.35); }
+    .hamb svg{ width:20px; height:20px; }
+
+    /* MOBILE MENU */
+    .overlay{
+      position: fixed; inset:0; z-index: 60;
+      display:none;
+      background: rgba(0,0,0,.62);
+      backdrop-filter: blur(12px);
+    }
+    .overlay.active{ display:block; }
+    .drawer{
+      position:absolute; right: 14px; top: 72px;
+      width: min(420px, calc(100% - 28px));
+      background: linear-gradient(180deg, rgba(15,19,36,.98), rgba(8,10,16,.98));
+      border: 1px solid rgba(148,163,184,.18);
+      border-radius: 18px;
+      box-shadow: var(--shadow2);
+      padding: 14px;
+      transform-origin: top right;
+      animation: pop .22s var(--ease);
+    }
+    @keyframes pop{ from{ transform: scale(.98); opacity:0; } to{ transform: scale(1); opacity:1; } }
+
+    .drawer a{
+      display:flex; align-items:center; gap:10px;
+      padding: 12px 12px;
+      border-radius: 12px;
+      color: var(--text);
+      border: 1px solid transparent;
+      background: rgba(148,163,184,.06);
+      margin-bottom: 10px;
+      transition: .22s var(--ease);
+      font-size: 14px;
+    }
+    .drawer a:hover{
+      border-color: rgba(43,255,138,.30);
+      transform: translateY(-1px);
+    }
+    .drawer .row{ display:flex; gap:10px; margin-top: 8px; }
+    .drawer .row a{ flex:1; justify-content:center; margin-bottom:0; }
+
+    /* HERO */
+    .hero{
+      padding: 54px 0 24px;
+    }
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1.15fr .95fr;
+      gap: 26px;
+      align-items:center;
+    }
+
+    .strap{
+      display:inline-flex; align-items:center; gap:10px;
+      border-radius: 999px;
+      padding: 7px 12px;
+      border: 1px solid rgba(148,163,184,.22);
+      background: rgba(148,163,184,.06);
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      width: fit-content;
+      margin-bottom: 14px;
+    }
+    .dot{
+      width:10px; height:10px; border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 18px rgba(43,255,138,.42);
+    }
+
+    .h1{
+      font-size: clamp(34px, 4vw, 56px);
+      line-height: 1.02;
+      letter-spacing: -.02em;
+      margin-bottom: 14px;
+      font-weight: 800;
+    }
+    .h1 .hot{
+      color: var(--warn);
+      text-shadow: 0 0 26px rgba(255,77,77,.18);
+    }
+
+    .lead{
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 56ch;
+      margin-bottom: 18px;
+    }
+
+    .bioCards{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 10px;
+      margin: 18px 0 18px;
+    }
+    .mini{
+      border-radius: 14px;
+      border: 1px solid rgba(148,163,184,.16);
+      background: linear-gradient(180deg, rgba(148,163,184,.07), rgba(15,19,36,.25));
+      padding: 12px;
+      box-shadow: 0 12px 40px rgba(0,0,0,.25);
+      overflow:hidden;
+      position:relative;
+    }
+    .mini::before{
+      content:"";
+      position:absolute; inset:-40%;
+      background: radial-gradient(circle at 20% 20%, rgba(43,255,138,.16), transparent 55%);
+      transform: rotate(12deg);
+      opacity:.7;
+      pointer-events:none;
+    }
+    .miniTop{
+      display:flex; align-items:center; gap:10px;
+      margin-bottom: 6px;
+      position:relative;
+      z-index:1;
+    }
+    .ico{
+      width: 34px; height: 34px;
+      border-radius: 12px;
+      display:grid; place-items:center;
+      background: rgba(43,255,138,.10);
+      border: 1px solid rgba(43,255,138,.22);
+      box-shadow: 0 0 0 3px rgba(43,255,138,.06);
+    }
+    .ico svg{ width:18px; height:18px; }
+    .miniTop b{ font-size: 13px; }
+    .mini p{
+      color: var(--muted2);
+      font-size: 12.5px;
+      position:relative;
+      z-index:1;
+    }
+
+    .ctaRow{
+      display:flex; gap: 12px; flex-wrap:wrap;
+      margin-top: 18px;
+      align-items:center;
+    }
+    .note{
+      font-size: 12.5px;
+      color: var(--muted2);
+      margin-top: 10px;
+    }
+    .note b{ color: var(--accent); font-weight: 800; }
+
+    /* HERO CARD (FOTO) */
+    .profile{
+      position:relative;
+      border-radius: var(--radius);
+      border: 1px solid rgba(148,163,184,.18);
+      background: linear-gradient(180deg, rgba(15,19,36,.80), rgba(8,10,16,.90));
+      box-shadow: var(--shadow);
+      padding: 14px;
+      overflow:hidden;
+      transform: translateZ(0);
+      animation: floaty 9s var(--ease) infinite;
+    }
+    @keyframes floaty{
+      0%{ transform: translateY(0); }
+      50%{ transform: translateY(-8px); }
+      100%{ transform: translateY(0); }
+    }
+    .glow{
+      position:absolute; inset:-40%;
+      background:
+        radial-gradient(circle at 30% 20%, rgba(43,255,138,.18), transparent 55%),
+        radial-gradient(circle at 80% 90%, rgba(255,77,77,.12), transparent 62%);
+      filter: blur(18px);
+      opacity:.85;
+      pointer-events:none;
+    }
+    .photo{
+      border-radius: 18px;
+      overflow:hidden;
+      border: 1px solid rgba(148,163,184,.26);
+      position:relative;
+      z-index:1;
+    }
+    .photo img{ width:100%; height:auto; display:block; object-fit:cover; }
+
+    .pMeta{
+      position:relative;
+      z-index:1;
+      margin-top: 12px;
+      display:flex; align-items:flex-start; justify-content:space-between;
+      gap: 12px;
+    }
+    .pMeta .name{ font-weight: 900; letter-spacing:-.01em; }
+    .pMeta .insta{ color: var(--muted); font-size: 13px; margin-top: 2px; }
+    .tag{
+      font-size: 12px;
+      color: var(--muted);
+      border: 1px solid rgba(148,163,184,.22);
+      background: rgba(148,163,184,.06);
+      padding: 7px 10px;
+      border-radius: 999px;
+      white-space:nowrap;
+    }
+    .facts{
+      position:relative; z-index:1;
+      margin-top: 10px;
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 8px 12px;
+      color: var(--muted);
+      font-size: 12.5px;
+    }
+    .facts b{ color: var(--accent); font-weight: 900; }
+
+    /* SECTION TITLES */
+    section{ padding: 52px 0; }
+    .head{
+      display:flex; flex-direction:column;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+    .kicker{
+      font-size: 12px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .title{
+      font-size: clamp(22px, 2.2vw, 34px);
+      letter-spacing: -.01em;
+      font-weight: 900;
+      line-height:1.12;
+    }
+    .sub{
+      color: var(--muted);
+      max-width: 75ch;
+      font-size: 14.5px;
+    }
+
+    /* METHOD CYCLE */
+    .methodCard{
+      border-radius: var(--radius);
+      border: 1px solid rgba(148,163,184,.18);
+      background: linear-gradient(180deg, rgba(12,15,26,.78), rgba(5,6,10,.70));
+      box-shadow: var(--shadow2);
+      padding: 18px;
+      overflow:hidden;
+      position:relative;
+    }
+    .methodCard::before{
+      content:"";
+      position:absolute; inset:-40%;
+      background: radial-gradient(circle at 15% 35%, rgba(255,77,77,.12), transparent 55%);
+      filter: blur(18px);
+      opacity:.8;
+      pointer-events:none;
+    }
+
+    .cycleWrap{
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 16px;
+      align-items:center;
+    }
+
+    .cycle{
+      position:relative;
+      height: 340px;
+      display:grid;
+      place-items:center;
+    }
+    .ring{
+      width: 300px; height: 300px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,.16);
+      position:absolute;
+      box-shadow: inset 0 0 0 1px rgba(148,163,184,.08);
+      background: radial-gradient(circle at 30% 20%, rgba(43,255,138,.08), transparent 60%);
+    }
+    .orbit{
+      width: 300px; height: 300px;
+      position:absolute;
+      animation: spin 18s linear infinite;
+      transform-origin:center;
+    }
+    @keyframes spin{ from{ transform: rotate(0deg);} to{ transform: rotate(360deg);} }
+
+    .node{
+      position:absolute;
+      width: 138px;
+      border-radius: 16px;
+      border: 1px solid rgba(148,163,184,.18);
+      background: rgba(148,163,184,.06);
+      padding: 10px 10px;
+      display:flex;
+      gap: 10px;
+      align-items:center;
+      box-shadow: 0 12px 40px rgba(0,0,0,.28);
+    }
+    .node .nIco{
+      width: 40px; height: 40px;
+      border-radius: 14px;
+      display:grid; place-items:center;
+      border: 1px solid rgba(255,77,77,.28);
+      background: rgba(255,77,77,.10);
+    }
+    .node .nIco.green{ border-color: rgba(43,255,138,.26); background: rgba(43,255,138,.10); }
+    .node .nIco.cyan{ border-color: rgba(56,189,248,.26); background: rgba(56,189,248,.10); }
+    .node .nIco.orange{ border-color: rgba(249,115,22,.28); background: rgba(249,115,22,.10); }
+    .node svg{ width: 18px; height: 18px; }
+    .node b{ font-size: 13px; }
+    .node span{ display:block; font-size: 12px; color: var(--muted2); margin-top: 1px; }
+
+    .node.a{ top: -6px; left: 50%; transform: translateX(-50%); }
+    .node.b{ right: -6px; top: 50%; transform: translateY(-50%); }
+    .node.c{ bottom: -6px; left: 50%; transform: translateX(-50%); }
+    .node.d{ left: -6px; top: 50%; transform: translateY(-50%); }
+
+    .cycleText{
+      position:relative;
+      padding: 12px;
+    }
+    .cycleText .big{
+      font-size: 22px;
+      font-weight: 900;
+      line-height:1.12;
+      margin-bottom: 10px;
+    }
+    .cycleText .big .hot{ color: var(--warn); }
+    .bul{
+      margin-top: 14px;
+      display:grid;
+      gap: 10px;
+    }
+    .bulItem{
+      display:flex; gap: 10px; align-items:flex-start;
+      padding: 12px;
+      border-radius: 16px;
+      border: 1px solid rgba(148,163,184,.14);
+      background: rgba(148,163,184,.05);
+      transition: .22s var(--ease);
+    }
+    .bulItem:hover{
+      transform: translateY(-1px);
+      border-color: rgba(43,255,138,.24);
+      background: rgba(43,255,138,.06);
+    }
+    .tick{
+      width: 26px; height: 26px;
+      border-radius: 10px;
+      display:grid; place-items:center;
+      border: 1px solid rgba(43,255,138,.25);
+      background: rgba(43,255,138,.10);
+      flex: 0 0 auto;
+      margin-top: 1px;
+    }
+    .tick svg{ width:14px; height:14px; }
+    .bulItem b{ font-size: 13px; }
+    .bulItem p{ font-size: 12.5px; color: var(--muted2); margin-top: 2px; }
+
+    /* FORM SECTION (like screenshot) */
+    .formCard{
+      border-radius: var(--radius);
+      border: 1px solid rgba(148,163,184,.18);
+      background: linear-gradient(180deg, rgba(12,15,26,.78), rgba(5,6,10,.70));
+      box-shadow: var(--shadow2);
+      padding: 18px;
+      position:relative;
+      overflow:hidden;
+    }
+    .formCard::before{
+      content:"";
+      position:absolute; inset:-40%;
+      background: radial-gradient(circle at 80% 20%, rgba(43,255,138,.10), transparent 55%);
+      filter: blur(18px);
+      opacity:.8;
+      pointer-events:none;
+    }
+
+    .formGrid{
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 18px;
+      align-items:start;
+      position:relative;
+      z-index:1;
+    }
+
+    .steps{
+      display:grid;
+      gap: 10px;
+    }
+    .stepBox{
+      border-radius: 16px;
+      border: 1px solid rgba(148,163,184,.16);
+      background: rgba(148,163,184,.05);
+      padding: 14px;
+      display:flex;
+      gap: 12px;
+      align-items:flex-start;
+    }
+    .stepNum{
+      width: 34px; height: 34px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,77,77,.30);
+      background: rgba(255,77,77,.12);
+      display:grid; place-items:center;
+      font-weight: 900;
+      color: var(--warn);
+      flex: 0 0 auto;
+    }
+    .stepBox b{ font-size: 13px; }
+    .stepBox p{ margin-top: 2px; font-size: 12.5px; color: var(--muted2); }
+
+    form{
+      display:grid;
+      gap: 10px;
+    }
+    .field{
+      position:relative;
+    }
+    .field input, .field select, .field textarea{
+      width:100%;
+      border-radius: 14px;
+      border: 1px solid rgba(148,163,184,.18);
+      background: rgba(10,12,18,.55);
+      color: var(--text);
+      padding: 13px 12px 13px 44px;
+      outline:none;
+      font-size: 13.5px;
+      transition: .22s var(--ease);
+    }
+    .field textarea{
+      min-height: 96px;
+      resize: vertical;
+      padding-top: 12px;
+    }
+    .field input:focus, .field select:focus, .field textarea:focus{
+      border-color: rgba(43,255,138,.40);
+      box-shadow: 0 0 0 4px rgba(43,255,138,.10);
+      background: rgba(10,12,18,.68);
+    }
+    .field .i{
+      position:absolute; left: 12px; top: 50%;
+      transform: translateY(-50%);
+      width: 20px; height: 20px;
+      opacity:.85;
+    }
+    .field textarea + .i{ top: 18px; transform:none; }
+    .field ::placeholder{ color: rgba(167,175,192,.7); }
+
+    .submitRow{
+      display:flex; gap: 12px; flex-wrap:wrap;
+      margin-top: 4px;
+      align-items:center;
+    }
+    .btnBig{
+      padding: 12px 18px;
+      font-size: 13.5px;
+    }
+    .small{
+      font-size: 12.5px;
+      color: var(--muted2);
+      max-width: 60ch;
+    }
+
+    /* FOOTER */
+    footer{
+      padding: 26px 0 70px;
+      border-top: 1px solid var(--line);
+      color: var(--muted2);
+      font-size: 13px;
+    }
+    footer a{ color: var(--accent); }
+
+    /* WHATSAPP FLOAT */
+    .wFloat{
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      width: 56px;
+      height: 56px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border: 1px solid rgba(43,255,138,.55);
+      box-shadow: 0 0 34px rgba(43,255,138,.24);
+      display:grid;
+      place-items:center;
+      z-index: 90;
+      transition: .2s var(--ease);
+      animation: pulse 2.6s var(--ease) infinite;
+    }
+    .wFloat:hover{
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 0 50px rgba(43,255,138,.34);
+    }
+    @keyframes pulse{
+      0%{ transform: translateY(0); box-shadow: 0 0 34px rgba(43,255,138,.20); }
+      50%{ transform: translateY(-3px); box-shadow: 0 0 55px rgba(43,255,138,.34); }
+      100%{ transform: translateY(0); box-shadow: 0 0 34px rgba(43,255,138,.20); }
+    }
+    .wFloat svg{ width: 26px; height: 26px; fill:#06110a; }
+
+    /* REVEAL */
+    .reveal{
+      opacity:0;
+      transform: translateY(18px) scale(.985);
+      transition: .7s var(--ease);
+    }
+    .reveal.on{
+      opacity:1;
+      transform: translateY(0) scale(1);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 980px){
+      .links, .nav-cta{ display:none; }
+      .hamb{ display:flex; }
+      .heroGrid{ grid-template-columns: 1fr; }
+      .bioCards{ grid-template-columns: 1fr; }
+      .cycleWrap, .formGrid{ grid-template-columns: 1fr; }
+      .cycle{ height: 310px; }
+      .ring, .orbit{ width: 280px; height: 280px; }
+      .node{ width: 140px; }
+      .profile{ max-width: 420px; margin: 0 auto; }
+    }
+
+    @media (max-width: 520px){
+      .h1{ font-size: 34px; }
+      .strap{ font-size: 11px; }
+      .node{ width: 134px; }
+      .ring, .orbit{ width: 260px; height: 260px; }
+      .wFloat{ width: 52px; height: 52px; right: 14px; bottom: 14px; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- MOBILE OVERLAY -->
+  <div class="overlay" id="overlay" aria-hidden="true">
+    <div class="drawer">
+      <a href="#inicio" data-close>
+        <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 3l9 8h-3v10h-5v-6H11v6H6V11H3z"/></svg>
+        Início
+      </a>
+      <a href="#metodo" data-close>
+        <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 1010 10A10 10 0 0012 2zm1 14.5V18h-2v-1.5a4.5 4.5 0 01-4-4.47h2A2.5 2.5 0 0011.5 14h1A2.5 2.5 0 0015 12.03c0-1.2-1-1.68-2.7-2.1S8 9 8 7.2A4.1 4.1 0 0111 3.55V3h2v.55a4.1 4.1 0 013 3.65h-2A2.1 2.1 0 0011.9 5h-.9A2 2 0 009 7c0 1 .9 1.4 2.6 1.85S16 10 16 12.03A4.5 4.5 0 0113 16.5z"/></svg>
+        Método
+      </a>
+      <a href="#diagnostico" data-close>
+        <svg viewBox="0 0 24 24"><path fill="currentColor" d="M19 3H5a2 2 0 00-2 2v14l4-3h12a2 2 0 002-2V5a2 2 0 00-2-2zm-9 9H7V10h3zm7 0h-5V10h5z"/></svg>
+        Diagnóstico
+      </a>
+      <div class="row">
+        <a class="btn btn-ghost" href="https://instagram.com/ademirtrafego" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path fill="currentColor" d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 6.5A3.5 3.5 0 1015.5 12 3.5 3.5 0 0012 8.5zm0 2A1.5 1.5 0 1110.5 12 1.5 1.5 0 0112 10.5zM18 6.3a.9.9 0 11-.9-.9.9.9 0 01.9.9z"/></svg>
+          Instagram
+        </a>
+        <a class="btn btn-accent" href="#diagnostico" data-close>
+          <svg viewBox="0 0 24 24"><path fill="currentColor" d="M13 5l7 7-7 7-1.4-1.4L16.2 13H4v-2h12.2l-4.6-4.6z"/></svg>
+          Começar
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <header>
+    <div class="wrap">
+      <div class="nav">
+        <div class="brand">
+          <div class="badge">AR</div>
+          <div>
+            <div class="t1">Ademir | Tráfego Pago</div>
+            <div class="t2">Social Media e Gestor de Tráfego</div>
+          </div>
+        </div>
+
+        <nav class="links" aria-label="Navegação">
+          <a href="#inicio">Início</a>
+          <a href="#metodo">Método</a>
+          <a href="#diagnostico">Diagnóstico</a>
+        </nav>
+
+        <div class="nav-cta">
+          <a class="btn btn-ghost" href="https://instagram.com/ademirtrafego" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path fill="currentColor" d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 6.5A3.5 3.5 0 1015.5 12 3.5 3.5 0 0012 8.5zm0 2A1.5 1.5 0 1110.5 12 1.5 1.5 0 0112 10.5zM18 6.3a.9.9 0 11-.9-.9.9.9 0 01.9.9z"/></svg>
+            @ademirtrafego
+          </a>
+          <a class="btn btn-accent" href="#diagnostico">
+            <svg viewBox="0 0 24 24"><path fill="currentColor" d="M13 5l7 7-7 7-1.4-1.4L16.2 13H4v-2h12.2l-4.6-4.6z"/></svg>
+            Quero o diagnóstico
+          </a>
+        </div>
+
+        <button class="hamb" id="hamb" aria-label="Abrir menu">
+          <svg viewBox="0 0 24 24"><path fill="currentColor" d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main id="inicio" class="hero">
+    <div class="wrap">
+      <div class="heroGrid">
+        <div class="reveal">
+          <div class="strap">
+            <span class="dot"></span>
+            consultoria + tráfego + social media
+          </div>
+
+          <div class="h1">
+            Tenha um time feito <span class="hot">sob medida</span> para atender seu negócio.
+          </div>
+
+          <p class="lead">
+            Eu sou <b>Ademir Rodrigues</b>, 34 anos, casado, pai de dois filhos, cristão.
+            Atuo há <b>7 anos</b> com Marketing Digital como <b>Social Media</b> e <b>Gestor de Tráfego</b>.
+            Meu foco é organizar a estratégia e executar com consistência, sem promessa vazia.
+          </p>
+
+          <div class="bioCards">
+            <div class="mini">
+              <div class="miniTop">
+                <div class="ico">
+                  <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 12a4 4 0 10-4-4 4 4 0 004 4zm0 2c-4 0-7 2-7 4v2h14v-2c0-2-3-4-7-4z"/></svg>
+                </div>
+                <div>
+                  <b>Autoridade com vida real</b>
+                  <p>Família, fé e responsabilidade. Sem personagem.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mini">
+              <div class="miniTop">
+                <div class="ico">
+                  <svg viewBox="0 0 24 24"><path fill="currentColor" d="M3 17l6-6 4 4 7-7 1 1-8 8-4-4-5 5z"/></svg>
+                </div>
+                <div>
+                  <b>Estratégia antes de anúncio</b>
+                  <p>Oferta, comunicação e processo alinhados.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mini">
+              <div class="miniTop">
+                <div class="ico">
+                  <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2l2.4 7.4H22l-6 4.4 2.3 7.2-6.3-4.6-6.3 4.6L8 13.8 2 9.4h7.6z"/></svg>
+                </div>
+                <div>
+                  <b>Execução consistente</b>
+                  <p>O básico bem feito, com cadência.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mini">
+              <div class="miniTop">
+                <div class="ico">
+                  <svg viewBox="0 0 24 24"><path fill="currentColor" d="M19 3H5a2 2 0 00-2 2v14l4-3h12a2 2 0 002-2V5a2 2 0 00-2-2zm-9 9H7V10h3zm7 0h-5V10h5z"/></svg>
+                </div>
+                <div>
+                  <b>Comunicação clara</b>
+                  <p>Você entende o plano e o porquê de cada passo.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="ctaRow">
+            <a class="btn btn-accent btnBig" href="#diagnostico">
+              <svg viewBox="0 0 24 24"><path fill="currentColor" d="M13 5l7 7-7 7-1.4-1.4L16.2 13H4v-2h12.2l-4.6-4.6z"/></svg>
+              Quero mais informações
+            </a>
+
+            <a class="btn btn-ghost btnBig" href="https://wa.me/5567981082158" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2C6.58 2 2.2 6.29 2.2 11.64c0 1.83.51 3.52 1.39 4.99L2 22l5.53-1.54c1.43.79 3.07 1.24 4.82 1.24 5.46 0 9.84-4.28 9.84-9.64C22.19 6.29 17.7 2 12.04 2zm0 17.33c-1.52 0-2.93-.41-4.14-1.14l-.3-.18-3.28.91.9-3.12-.2-.32a7.17 7.17 0 0 1-1.12-3.94c0-4.01 3.37-7.27 7.48-7.27 4.1 0 7.47 3.26 7.47 7.27 0 4.01-3.37 7.27-7.47 7.27z"/><path fill="currentColor" d="M16.2 13.21c-.25-.13-1.47-.76-1.7-.85-.23-.09-.4-.13-.57.13-.17.26-.65.85-.8 1.03-.15.17-.29.2-.54.07-.25-.13-1.05-.41-2-1.3-.74-.7-1.24-1.56-1.39-1.82-.15-.26-.02-.4.11-.53.12-.12.25-.32.38-.48.13-.16.17-.26.25-.43.08-.17.04-.32-.02-.45-.06-.13-.57-1.37-.78-1.87-.2-.48-.4-.41-.57-.42l-.49-.01c-.17 0-.45.06-.68.29-.23.23-.89.86-.89 2.09 0 1.23.9 2.43 1.03 2.6.13.17 1.76 2.78 4.32 3.79.6.24 1.07.38 1.44.48.61.19 1.16.16 1.6.1.49-.07 1.47-.6 1.68-1.17.21-.57.21-1.05.15-1.16-.06-.11-.22-.17-.47-.3z"/></svg>
+              Falar no WhatsApp
+            </a>
+          </div>
+
+          <div class="note">
+            Exclusivo para empresas que querem crescer com consistência. <b>Próximo passo: diagnóstico</b>.
+          </div>
+        </div>
+
+        <div class="reveal">
+          <div class="profile">
+            <div class="glow"></div>
+            <div class="photo">
+              <img src="https://res.cloudinary.com/dmdaiwkyl/image/upload/v1765503081/Picsart_25-12-11_21-29-08-660_mscuaj.jpg" alt="Ademir Rodrigues" />
+            </div>
+
+            <div class="pMeta">
+              <div>
+                <div class="name">Ademir Rodrigues</div>
+                <div class="insta">@ademirtrafego</div>
+              </div>
+              <div class="tag">Social Media • Gestor de Tráfego</div>
+            </div>
+
+            <div class="facts">
+              <div><b>34 anos</b> • Casado</div>
+              <div><b>Pai de 2</b> • Cristão</div>
+              <div><b>7 anos</b> de mercado</div>
+              <div>Marketing na prática</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- METHOD -->
+  <section id="metodo">
+    <div class="wrap">
+      <div class="head reveal">
+        <div class="kicker">O método</div>
+        <div class="title">Existe um método científico para que sua empresa nunca pare de vender.</div>
+        <div class="sub">A ideia é simples: construir um ciclo contínuo de crescimento. Quando você segue o processo, você para de depender de sorte e começa a operar com direção.</div>
+      </div>
+
+      <div class="methodCard reveal">
+        <div class="cycleWrap">
+          <div class="cycle" aria-label="Ciclo de crescimento">
+            <div class="ring"></div>
+            <div class="orbit" aria-hidden="true"></div>
+
+            <div class="node a">
+              <div class="nIco green">
+                <svg viewBox="0 0 24 24"><path fill="currentColor" d="M4 4h16v4H4zm0 6h10v4H4zm0 6h16v4H4z"/></svg>
+              </div>
+              <div>
+                <b>Aquisição</b>
+                <span>atrair</span>
+              </div>
+            </div>
+
+            <div class="node b">
+              <div class="nIco orange">
+                <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 12a4 4 0 10-4-4 4 4 0 004 4zm0 2c-4 0-7 2-7 4v2h14v-2c0-2-3-4-7-4z"/></svg>
+              </div>
+              <div>
+                <b>Engajamento</b>
+                <span>conectar</span>
+              </div>
+            </div>
+
+            <div class="node c">
+              <div class="nIco cyan">
+                <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 1010 10A10 10 0 0012 2zm1 14.5V18h-2v-1.5a4.5 4.5 0 01-4-4.47h2A2.5 2.5 0 0011.5 14h1A2.5 2.5 0 0015 12.03c0-1.2-1-1.68-2.7-2.1S8 9 8 7.2A4.1 4.1 0 0111 3.55V3h2v.55a4.1 4.1 0 013 3.65h-2A2.1 2.1 0 0011.9 5h-.9A2 2 0 009 7c0 1 .9 1.4 2.6 1.85S16 10 16 12.03A4.5 4.5 0 0113 16.5z"/></svg>
+              </div>
+              <div>
+                <b>Monetização</b>
+                <span>vender</span>
+              </div>
+            </div>
+
+            <div class="node d">
+              <div class="nIco">
+                <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 21s-7-4.4-9.5-8.5A5.8 5.8 0 0112 4.2a5.8 5.8 0 019.5 8.3C19 16.6 12 21 12 21z"/></svg>
+              </div>
+              <div>
+                <b>Retenção</b>
+                <span>recomprar</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="cycleText">
+            <div class="big">Se você não seguir o processo, sua empresa não sai do lugar.</div>
+            <div class="sub">
+              Eu entro para organizar o que está solto: proposta, mensagem, criativos, captação e acompanhamento.
+              Tudo com cadência, para o crescimento virar rotina e não evento raro.
+            </div>
+
+            <div class="bul">
+              <div class="bulItem">
+                <div class="tick">
+                  <svg viewBox="0 0 24 24"><path fill="currentColor" d="M9.2 16.6L4.9 12.3l1.4-1.4 2.9 2.9 8.5-8.5 1.4 1.4z"/></svg>
+                </div>
+                <div>
+                  <b>Diagnóstico e direção</b>
+                  <p>Antes de rodar anúncio, entender o negócio e definir a rota.</p>
+                </div>
+              </div>
+
+              <div class="bulItem">
+                <div class="tick">
+                  <svg viewBox="0 0 24 24"><path fill="currentColor" d="M9.2 16.6L4.9 12.3l1.4-1.4 2.9 2.9 8.5-8.5 1.4 1.4z"/></svg>
+                </div>
+                <div>
+                  <b>Execução com consistência</b>
+                  <p>O que funciona é repetido, o que não funciona é ajustado sem ego.</p>
+                </div>
+              </div>
+
+              <div class="bulItem">
+                <div class="tick">
+                  <svg viewBox="0 0 24 24"><path fill="currentColor" d="M9.2 16.6L4.9 12.3l1.4-1.4 2.9 2.9 8.5-8.5 1.4 1.4z"/></svg>
+                </div>
+                <div>
+                  <b>Clareza total</b>
+                  <p>Você entende o plano e acompanha o que está sendo feito.</p>
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-top:14px;">
+              <a class="btn btn-accent" href="#diagnostico">
+                <svg viewBox="0 0 24 24"><path fill="currentColor" d="M13 5l7 7-7 7-1.4-1.4L16.2 13H4v-2h12.2l-4.6-4.6z"/></svg>
+                Quero o diagnóstico
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FORM / DIAGNOSTIC -->
+  <section id="diagnostico">
+    <div class="wrap">
+      <div class="head reveal">
+        <div class="kicker">Próximo passo</div>
+        <div class="title">Dar o próximo passo leva menos de um minuto.</div>
+        <div class="sub">Preencha o formulário. Se fizer sentido, eu te chamo no WhatsApp para alinhar o melhor caminho para o seu momento.</div>
+      </div>
+
+      <div class="formCard reveal">
+        <div class="formGrid">
+          <div class="steps">
+            <div class="stepBox">
+              <div class="stepNum">1</div>
+              <div>
+                <b>Preencha o formulário</b>
+                <p>Envie as informações de contato e o contexto do seu negócio. Seus dados ficam seguros.</p>
+              </div>
+            </div>
+
+            <div class="stepBox">
+              <div class="stepNum">2</div>
+              <div>
+                <b>Receba uma ligação</b>
+                <p>Eu vou te chamar no WhatsApp para agendar uma conversa rápida e direta.</p>
+              </div>
+            </div>
+
+            <div class="stepBox">
+              <div class="stepNum">3</div>
+              <div>
+                <b>Plano de ação</b>
+                <p>Você recebe um direcionamento claro do que fazer agora, sem enrolação.</p>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <form action="https://formspree.io/f/mrbnorol" method="POST">
+              <div class="field">
+                <input name="nome" type="text" placeholder="Qual é o seu nome e sobrenome?" required />
+                <svg class="i" viewBox="0 0 24 24"><path fill="currentColor" d="M12 12a4 4 0 10-4-4 4 4 0 004 4zm0 2c-4 0-7 2-7 4v2h14v-2c0-2-3-4-7-4z"/></svg>
+              </div>
+
+              <div class="field">
+                <input name="email" type="email" placeholder="Qual é o seu e-mail?" required />
+                <svg class="i" viewBox="0 0 24 24"><path fill="currentColor" d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5z"/></svg>
+              </div>
+
+              <div class="field">
+                <input name="whatsapp" type="text" placeholder="Qual é o seu WhatsApp?" required />
+                <svg class="i" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2C6.58 2 2.2 6.29 2.2 11.64c0 1.83.51 3.52 1.39 4.99L2 22l5.53-1.54c1.43.79 3.07 1.24 4.82 1.24 5.46 0 9.84-4.28 9.84-9.64C22.19 6.29 17.7 2 12.04 2zm0 17.33c-1.52 0-2.93-.41-4.14-1.14l-.3-.18-3.28.91.9-3.12-.2-.32a7.17 7.17 0 0 1-1.12-3.94c0-4.01 3.37-7.27 7.48-7.27 4.1 0 7.47 3.26 7.47 7.27 0 4.01-3.37 7.27-7.47 7.27z"/></svg>
+              </div>
+
+              <div class="field">
+                <input name="empresa" type="text" placeholder="Qual é o nome da sua empresa?" />
+                <svg class="i" viewBox="0 0 24 24"><path fill="currentColor" d="M4 20V4a2 2 0 012-2h7l7 7v11a2 2 0 01-2 2H6a2 2 0 01-2-2zm9-17v5h5"/></svg>
+              </div>
+
+              <div class="field">
+                <select name="segmento">
+                  <option value="" selected>Qual é o segmento do seu negócio?</option>
+                  <option>Serviços locais</option>
+                  <option>Clínica / Saúde</option>
+                  <option>Beleza / Estética</option>
+                  <option>Alimentação</option>
+                  <option>Educação</option>
+                  <option>Outro</option>
+                </select>
+                <svg class="i" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2l4 8H8l4-8zm0 20l-4-8h8l-4 8z"/></svg>
+              </div>
+
+              <div class="field">
+                <textarea name="objetivo" placeholder="Em uma frase: qual objetivo você quer atingir nos próximos 60 dias?"></textarea>
+                <svg class="i" viewBox="0 0 24 24"><path fill="currentColor" d="M3 3h18v14H7l-4 4V3zm4 6h10v2H7V9zm0-4h10v2H7V5z"/></svg>
+              </div>
+
+              <div class="submitRow">
+                <button class="btn btn-accent btnBig" type="submit">
+                  <svg viewBox="0 0 24 24"><path fill="currentColor" d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg>
+                  Receber mais informações
+                </button>
+                <div class="small">
+                  Ao enviar, você concorda em receber contato no WhatsApp para alinhamento do diagnóstico.
+                </div>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+
+      <div style="margin-top:16px; color:var(--muted2); font-size:13px;" class="reveal">
+        Contato direto: <a href="https://wa.me/5567981082158" target="_blank" rel="noopener" style="color:var(--accent); font-weight:800;">WhatsApp</a> •
+        Instagram: <a href="https://instagram.com/ademirtrafego" target="_blank" rel="noopener" style="color:var(--accent); font-weight:800;">@ademirtrafego</a>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      © 2025 • <b>Ademir Rodrigues</b> • Social Media e Gestor de Tráfego •
+      <a href="https://instagram.com/ademirtrafego" target="_blank" rel="noopener">@ademirtrafego</a>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Floating Button -->
+  <a class="wFloat" href="https://wa.me/5567981082158" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+    <svg viewBox="0 0 24 24">
+      <path d="M12.04 2C6.58 2 2.2 6.29 2.2 11.64c0 1.83.51 3.52 1.39 4.99L2 22l5.53-1.54c1.43.79 3.07 1.24 4.82 1.24 5.46 0 9.84-4.28 9.84-9.64C22.19 6.29 17.7 2 12.04 2zm0 17.33c-1.52 0-2.93-.41-4.14-1.14l-.3-.18-3.28.91.9-3.12-.2-.32a7.17 7.17 0 0 1-1.12-3.94c0-4.01 3.37-7.27 7.48-7.27 4.1 0 7.47 3.26 7.47 7.27 0 4.01-3.37 7.27-7.47 7.27z"/>
+      <path d="M16.2 13.21c-.25-.13-1.47-.76-1.7-.85-.23-.09-.4-.13-.57.13-.17.26-.65.85-.8 1.03-.15.17-.29.2-.54.07-.25-.13-1.05-.41-2-1.3-.74-.7-1.24-1.56-1.39-1.82-.15-.26-.02-.4.11-.53.12-.12.25-.32.38-.48.13-.16.17-.26.25-.43.08-.17.04-.32-.02-.45-.06-.13-.57-1.37-.78-1.87-.2-.48-.4-.41-.57-.42l-.49-.01c-.17 0-.45.06-.68.29-.23.23-.89.86-.89 2.09 0 1.23.9 2.43 1.03 2.6.13.17 1.76 2.78 4.32 3.79.6.24 1.07.38 1.44.48.61.19 1.16.16 1.6.1.49-.07 1.47-.6 1.68-1.17.21-.57.21-1.05.15-1.16-.06-.11-.22-.17-.47-.3z"/>
+    </svg>
+  </a>
+
+  <script>
+    // Mobile menu
+    const overlay = document.getElementById('overlay');
+    const hamb = document.getElementById('hamb');
+
+    function closeMenu(){
+      overlay.classList.remove('active');
+      overlay.setAttribute('aria-hidden','true');
+    }
+    function openMenu(){
+      overlay.classList.add('active');
+      overlay.setAttribute('aria-hidden','false');
+    }
+
+    hamb?.addEventListener('click', openMenu);
+    overlay?.addEventListener('click', (e)=>{
+      if(e.target === overlay) closeMenu();
+    });
+    document.querySelectorAll('[data-close]').forEach(el=>{
+      el.addEventListener('click', closeMenu);
+    });
+    document.addEventListener('keydown', (e)=>{
+      if(e.key === 'Escape') closeMenu();
+    });
+
+    // Reveal on scroll
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(en=>{
+        if(en.isIntersecting){
+          en.target.classList.add('on');
+          io.unobserve(en.target);
+        }
+      });
+    }, { threshold: 0.14 });
+
+    document.querySelectorAll('.reveal').forEach(el=> io.observe(el));
+  </script>
+</body>
+</html>
