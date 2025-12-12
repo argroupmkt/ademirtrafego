@@ -2,1084 +2,474 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <title>Ademir | Tráfego Pago</title>
+  <title>Ademir Rodrigues | Assessoria de Performance</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Ademir Rodrigues | Social Media e Gestor de Tráfego. Estratégia e execução para negócios locais crescerem com consistência." />
+  <meta name="description" content="Assessoria de tráfego pago e growth para negócios locais. Método validado em 7 anos de mercado." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;700;800&display=swap" rel="stylesheet">
 
   <style>
-    :root{
-      --bg:#05070f;
-      --bg2:#070a14;
-      --card: rgba(255,255,255,.06);
-      --card2: rgba(255,255,255,.04);
-      --stroke: rgba(255,255,255,.10);
-      --text:#e9edf6;
-      --muted: rgba(233,237,246,.68);
-      --muted2: rgba(233,237,246,.52);
-      --accent:#32f57b;
-      --accent2:#19c85a;
-      --shadow: 0 30px 90px rgba(0,0,0,.65);
-      --shadow2: 0 22px 55px rgba(0,0,0,.55);
-      --r: 18px;
-      --r2: 26px;
-      --max: 1120px;
+    :root {
+      /* CORES INSPIRADAS NA REFERÊNCIA (V4 STYLE) */
+      --bg-body: #050505;       /* Preto Absoluto */
+      --bg-surface: #101010;    /* Cinza Chumbo */
+      --bg-hover: #1a1a1a;
+      
+      /* O Vermelho V4 (para agressividade comercial) */
+      --brand-color: #DC2626;   
+      --brand-dark: #991b1b;
+      
+      --text-main: #ffffff;
+      --text-muted: #a3a3a3;
+      
+      --border: rgba(255, 255, 255, 0.1);
+      --container: 1200px;
     }
 
-    *{box-sizing:border-box; margin:0; padding:0}
-    html,body{height:100%}
-    body{
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
-      background:
-        radial-gradient(1200px 800px at 15% -10%, rgba(50,245,123,.18), transparent 60%),
-        radial-gradient(1000px 700px at 90% 0%, rgba(56,189,248,.14), transparent 60%),
-        radial-gradient(900px 700px at 50% 110%, rgba(50,245,123,.10), transparent 60%),
-        linear-gradient(180deg, var(--bg) 0%, #04050b 100%);
-      color: var(--text);
-      line-height: 1.55;
-      -webkit-font-smoothing: antialiased;
-      scroll-behavior:smooth;
+    /* RESET & BASE */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    html { scroll-behavior: smooth; }
+    
+    body {
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      font-family: 'Manrope', sans-serif;
+      overflow-x: hidden;
+      line-height: 1.5;
     }
 
-    a{color:inherit; text-decoration:none}
-    .wrap{min-height:100%; display:flex; flex-direction:column}
-    main{flex:1}
+    h1, h2, h3, h4 { font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; color: #fff; }
+    p { color: var(--text-muted); font-size: 1rem; font-weight: 400; }
+    a { text-decoration: none; transition: 0.3s; }
 
-    /* Header */
-    header{
-      position:sticky;
-      top:0;
-      z-index:50;
-      backdrop-filter: blur(16px);
-      background: linear-gradient(180deg, rgba(5,7,15,.88) 0%, rgba(5,7,15,.62) 55%, rgba(5,7,15,0) 100%);
-      border-bottom: 1px solid rgba(255,255,255,.06);
+    /* UTILITÁRIOS */
+    .container { max-width: var(--container); margin: 0 auto; padding: 0 24px; }
+    
+    .section-spacing { padding: 100px 0; border-bottom: 1px solid var(--border); }
+    
+    .uppercase-label {
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      color: var(--brand-color);
+      font-weight: 700;
+      margin-bottom: 16px;
+      display: block;
     }
-    .nav{
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 12px 16px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-    }
-    .brand{
-      display:flex; align-items:center; gap:10px;
-      min-width: 220px;
-    }
-    .brandBadge{
-      width:34px; height:34px; border-radius:999px;
-      border: 1px solid rgba(50,245,123,.65);
-      box-shadow: 0 0 28px rgba(50,245,123,.22);
-      display:grid; place-items:center;
-      background:
-        radial-gradient(circle at 30% 10%, rgba(50,245,123,.45), rgba(50,245,123,0) 60%),
-        rgba(255,255,255,.04);
-      font-weight:800; letter-spacing:.02em;
-      color: var(--accent);
-      font-size: 12px;
-      user-select:none;
-    }
-    .brandText{
-      display:flex; flex-direction:column; line-height:1.1;
-    }
-    .brandText b{font-size: 13.5px; letter-spacing:.01em}
-    .brandText span{font-size: 12px; color: var(--muted)}
 
-    .links{
-      display:flex;
-      align-items:center;
-      gap:18px;
-      color: var(--muted);
-      font-size: 13px;
-    }
-    .links a{
-      position:relative;
-      padding: 8px 2px;
-      transition: color .2s ease, transform .2s ease;
-    }
-    .links a:hover{color: var(--text); transform: translateY(-1px)}
-    .links a:after{
-      content:"";
-      position:absolute;
-      left:0; bottom:4px;
-      width:0; height:2px;
-      background: linear-gradient(90deg, var(--accent), rgba(50,245,123,0));
-      transition: width .22s ease;
-      opacity:.9;
-    }
-    .links a:hover:after{width:100%}
-
-    .navCtas{display:flex; gap:10px; align-items:center}
-    .btn{
-      border-radius: 999px;
-      padding: 10px 14px;
-      font-size: 13px;
-      font-weight: 650;
+    /* BOTÕES (Estilo Industrial) */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 32px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: all 0.2s ease;
       border: 1px solid transparent;
-      display:inline-flex; align-items:center; gap:8px;
-      cursor:pointer;
-      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease, filter .18s ease;
-      white-space: nowrap;
-    }
-    .btn svg{width:16px; height:16px; flex:0 0 auto}
-    .btnPrimary{
-      background: radial-gradient(circle at 20% 20%, var(--accent) 0%, var(--accent2) 60%, #0c6b33 115%);
-      color:#06110a;
-      border-color: rgba(50,245,123,.55);
-      box-shadow: 0 0 34px rgba(50,245,123,.20);
-    }
-    .btnPrimary:hover{transform: translateY(-1px); box-shadow: 0 0 44px rgba(50,245,123,.28); filter: brightness(1.02)}
-    .btnGhost{
-      background: rgba(255,255,255,.05);
-      border-color: rgba(255,255,255,.10);
-      color: var(--text);
-    }
-    .btnGhost:hover{transform: translateY(-1px); border-color: rgba(50,245,123,.35); box-shadow: 0 10px 28px rgba(0,0,0,.25)}
-
-    .menuBtn{display:none; background:transparent; border:none; color:var(--text); padding:10px 12px; border-radius:12px; cursor:pointer}
-    .menuBtn:hover{background: rgba(255,255,255,.05)}
-    .menuBtn svg{width:20px; height:20px}
-
-    /* Mobile menu overlay */
-    .overlay{
-      position:fixed; inset:0;
-      background: rgba(5,7,15,.78);
-      backdrop-filter: blur(14px);
-      display:none;
-      z-index:60;
-    }
-    .overlay.active{display:block}
-    .sheet{
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 78px 16px 18px;
-    }
-    .sheetCard{
-      border:1px solid rgba(255,255,255,.10);
-      background: radial-gradient(circle at 20% 0%, rgba(50,245,123,.12), transparent 55%), rgba(255,255,255,.04);
-      border-radius: var(--r2);
-      box-shadow: var(--shadow2);
-      padding: 16px;
-    }
-    .sheetLinks{
-      display:flex; flex-direction:column; gap:10px;
-      padding: 10px 6px 2px;
-      color: var(--text);
-      font-weight: 600;
-    }
-    .sheetLinks a{
-      padding: 12px 12px;
-      border-radius: 14px;
-      border:1px solid rgba(255,255,255,.08);
-      background: rgba(255,255,255,.03);
-    }
-    .sheetLinks a:hover{border-color: rgba(50,245,123,.32)}
-    .sheetCtas{display:flex; flex-direction:column; gap:10px; margin-top: 12px}
-
-    /* Sections base */
-    section{max-width: var(--max); margin:0 auto; padding: 56px 16px}
-    .kicker{
-      display:inline-flex; align-items:center; gap:10px;
-      color: var(--accent);
-      font-size: 12px;
-      letter-spacing:.16em;
-      text-transform:uppercase;
-      margin-bottom: 10px;
-    }
-    .kicker .dot{
-      width:9px; height:9px; border-radius:999px;
-      background: var(--accent);
-      box-shadow: 0 0 18px rgba(50,245,123,.45);
-    }
-    h1{
-      font-size: clamp(30px, 3.5vw + 14px, 56px);
-      line-height: 1.03;
-      letter-spacing: -.02em;
-      margin-bottom: 14px;
-    }
-    h2{
-      font-size: clamp(22px, 1.5vw + 14px, 34px);
-      line-height: 1.15;
-      letter-spacing: -.01em;
-      margin-bottom: 10px;
-    }
-    .sub{
-      color: var(--muted);
-      font-size: 15.5px;
-      max-width: 72ch;
     }
 
-    /* Hero */
-    .hero{
-      padding-top: 40px;
+    .btn-primary {
+      background-color: var(--brand-color);
+      color: #fff;
     }
-    .heroGrid{
-      display:grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap: 26px;
-      align-items: start;
+    .btn-primary:hover { background-color: var(--brand-dark); }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.3);
+      color: #fff;
+    }
+    .btn-outline:hover {
+      border-color: #fff;
+      background: #fff;
+      color: #000;
     }
 
-    .heroLeft{
-      padding-top: 10px;
-    }
-    .heroLeft .headlineStrong{
-      color: var(--text);
-    }
-    .heroLeft .headlineStrong span{
-      background: linear-gradient(90deg, var(--accent), rgba(50,245,123,.35));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .heroActions{
-      display:flex; flex-wrap:wrap; gap:12px; align-items:center;
-      margin-top: 18px;
+    /* HEADER */
+    header {
+      position: fixed;
+      top: 0; left: 0; width: 100%;
+      background: rgba(5, 5, 5, 0.9);
+      backdrop-filter: blur(10px);
+      z-index: 999;
+      border-bottom: 1px solid var(--border);
+      height: 80px;
+      display: flex;
+      align-items: center;
     }
 
-    .heroSignals{
-      display:grid;
-      grid-template-columns: repeat(2, minmax(0,1fr));
-      gap: 10px 14px;
-      margin-top: 18px;
-      max-width: 560px;
-    }
-    .signal{
-      display:flex; gap:10px; align-items:flex-start;
-      padding: 12px 12px;
-      border-radius: 16px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.035);
-      transition: transform .18s ease, border-color .18s ease, background .18s ease;
-    }
-    .signal:hover{transform: translateY(-2px); border-color: rgba(50,245,123,.28); background: rgba(255,255,255,.05)}
-    .signal svg{width:18px; height:18px; color: var(--accent); margin-top:2px}
-    .signal b{display:block; font-size: 13.2px; margin-bottom: 2px}
-    .signal span{display:block; font-size: 13px; color: var(--muted)}
+    .header-inner { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+    
+    .logo { font-size: 1.5rem; font-weight: 800; letter-spacing: -1px; }
+    .logo span { color: var(--brand-color); }
 
-    .heroRight{
-      position:relative;
-    }
-    .photoCard{
-      border-radius: 28px;
-      border:1px solid rgba(255,255,255,.12);
-      background:
-        radial-gradient(circle at 20% 0%, rgba(50,245,123,.12), transparent 55%),
-        rgba(255,255,255,.03);
-      box-shadow: var(--shadow);
-      overflow:hidden;
-      transform: translateZ(0);
-    }
-    .photoFrame{
-      position:relative;
-      overflow:hidden;
-      aspect-ratio: 3 / 4;
-      background: rgba(255,255,255,.02);
-    }
-    .photoFrame img{
-      width:100%;
-      height:100%;
-      object-fit: cover;
-      display:block;
-      filter: contrast(1.02) saturate(1.05);
-      transform: scale(1.02);
-    }
-    .photoGlow{
-      position:absolute; inset: -25%;
-      background:
-        radial-gradient(circle at 15% 0%, rgba(50,245,123,.20), transparent 55%),
-        radial-gradient(circle at 100% 100%, rgba(56,189,248,.16), transparent 60%);
-      filter: blur(22px);
-      opacity:.9;
-      pointer-events:none;
-    }
-    .photoCardInner{
-      padding: 14px 14px 16px;
-      border-top: 1px solid rgba(255,255,255,.08);
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:10px;
-      background: rgba(5,7,15,.32);
-    }
-    .miniTag{
-      padding: 7px 10px;
-      border-radius: 999px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.04);
-      color: var(--muted);
-      font-size: 12px;
-      white-space: nowrap;
+    .nav-desk { display: flex; gap: 40px; }
+    .nav-desk a { color: var(--text-muted); font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+    .nav-desk a:hover { color: #fff; }
+
+    /* HERO SECTION */
+    .hero {
+      padding-top: 180px;
+      padding-bottom: 100px;
+      background: 
+        linear-gradient(to bottom, rgba(5,5,5,0) 0%, #050505 100%),
+        radial-gradient(circle at 50% 30%, rgba(220, 38, 38, 0.15), transparent 50%);
     }
 
-    /* Big feature */
-    .featureBand{
-      margin-top: 34px;
-      border-radius: 30px;
-      border:1px solid rgba(255,255,255,.10);
-      background:
-        radial-gradient(circle at 10% 0%, rgba(50,245,123,.10), transparent 55%),
-        rgba(255,255,255,.03);
-      box-shadow: var(--shadow2);
-      overflow:hidden;
-      position:relative;
-    }
-    .featureBandInner{
-      padding: 34px 22px;
-      display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 18px;
-      align-items:center;
-    }
-    .featureBand h2{margin-bottom: 6px}
-    .featureBand p{color: var(--muted); font-size: 14.8px; max-width: 68ch}
-    .bigCTA{
-      display:flex; justify-content:flex-end;
-      gap:10px; flex-wrap:wrap;
+    .hero-content { text-align: center; max-width: 900px; margin: 0 auto; }
+    
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      margin-bottom: 24px;
     }
 
-    /* Method cycle */
-    .methodGrid{
-      display:grid;
+    .hero p {
+      font-size: 1.25rem;
+      max-width: 600px;
+      margin: 0 auto 40px auto;
+    }
+
+    /* GRID DE MÉTRICAS (Barra de Autoridade) */
+    .metrics-bar {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--bg-surface);
+    }
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .metric-item {
+      padding: 40px 20px;
+      text-align: center;
+      border-right: 1px solid var(--border);
+    }
+    .metric-item:last-child { border-right: none; }
+    
+    .metric-num { font-size: 2.5rem; font-weight: 800; color: #fff; display: block; margin-bottom: 5px; }
+    .metric-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); }
+
+    /* O MÉTODO (GRID ESTRUTURADO) */
+    .method-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1px; /* Gap cria as linhas da grade */
+      background: var(--border); /* Cor das linhas */
+      border: 1px solid var(--border);
+    }
+
+    .method-card {
+      background: var(--bg-body);
+      padding: 40px;
+      transition: background 0.3s;
+    }
+    .method-card:hover { background: var(--bg-surface); }
+
+    .step-num { color: var(--brand-color); font-weight: 700; font-size: 1.2rem; margin-bottom: 15px; display: block; }
+    .step-title { font-size: 1.5rem; margin-bottom: 15px; }
+    .step-desc { font-size: 0.95rem; line-height: 1.6; }
+
+    /* SOBRE (LADO A LADO) */
+    .about-grid {
+      display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 18px;
-      align-items:start;
-    }
-    .cycleCard{
-      border-radius: 26px;
-      border:1px solid rgba(255,255,255,.10);
-      background:
-        radial-gradient(circle at 30% 0%, rgba(50,245,123,.08), transparent 55%),
-        rgba(255,255,255,.03);
-      box-shadow: var(--shadow2);
-      padding: 22px;
-      position:relative;
-      overflow:hidden;
-    }
-    .cycleTitle{margin-bottom: 6px}
-    .cycleText{color: var(--muted); font-size: 14.8px; margin-bottom: 16px}
-
-    .cycle{
-      position:relative;
-      height: 340px;
-      display:grid;
-      place-items:center;
-    }
-    .ring{
-      position:absolute;
-      width: 280px; height: 280px;
-      border-radius: 999px;
-      border: 1px dashed rgba(255,255,255,.14);
-      animation: spin 18s linear infinite;
-      opacity:.8;
-    }
-    @keyframes spin { from{transform: rotate(0)} to{transform: rotate(360deg)} }
-
-    .node{
-      position:absolute;
-      width: 148px;
-      padding: 12px 12px;
-      border-radius: 18px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.04);
-      display:flex; align-items:flex-start; gap:10px;
-      box-shadow: 0 14px 34px rgba(0,0,0,.38);
-      transform: translateZ(0);
-      transition: transform .2s ease, border-color .2s ease;
-    }
-    .node:hover{transform: translateY(-2px); border-color: rgba(50,245,123,.28)}
-    .node svg{width:18px; height:18px; color: var(--accent); margin-top:2px}
-    .node b{display:block; font-size: 13px; margin-bottom: 2px}
-    .node span{display:block; font-size: 12.7px; color: var(--muted)}
-
-    .n1{top: 10px; left: 50%; transform: translateX(-50%)}
-    .n2{right: 10px; top: 50%; transform: translateY(-50%)}
-    .n3{bottom: 10px; left: 50%; transform: translateX(-50%)}
-    .n4{left: 10px; top: 50%; transform: translateY(-50%)}
-
-    .node:hover.n1{transform: translateX(-50%) translateY(-2px)}
-    .node:hover.n2{transform: translateY(-50%) translateY(-2px)}
-    .node:hover.n3{transform: translateX(-50%) translateY(-2px)}
-    .node:hover.n4{transform: translateY(-50%) translateY(-2px)}
-
-    /* About + services cards */
-    .twoCol{
-      display:grid;
-      grid-template-columns: 1.05fr .95fr;
-      gap: 18px;
-      align-items:start;
+      gap: 60px;
+      align-items: center;
     }
 
-    .stack{
-      display:grid;
-      gap: 12px;
+    .about-img-frame {
+      position: relative;
+      border: 1px solid var(--border);
+      padding: 20px;
     }
-    .infoCard{
-      border-radius: 22px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.035);
+    .about-img {
+      width: 100%;
+      display: block;
+      filter: grayscale(100%) contrast(1.1); /* Estilo V4 P&B */
+      transition: 0.5s;
+    }
+    .about-img:hover { filter: grayscale(0%); }
+
+    /* FORMULÁRIO (DIAGNÓSTICO) */
+    .form-wrapper {
+      background: var(--bg-surface);
+      padding: 60px;
+      border: 1px solid var(--border);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .form-full { grid-column: span 2; }
+
+    label { display: block; font-size: 0.8rem; text-transform: uppercase; font-weight: 700; margin-bottom: 8px; letter-spacing: 1px; }
+
+    input, select, textarea {
+      width: 100%;
+      background: var(--bg-body);
+      border: 1px solid var(--border);
+      color: #fff;
       padding: 16px;
-      box-shadow: 0 18px 45px rgba(0,0,0,.40);
-    }
-    .infoCard h3{font-size: 15px; margin-bottom: 6px}
-    .infoCard p{color: var(--muted); font-size: 14px}
-    .list{
-      list-style:none;
-      display:grid;
-      gap: 10px;
-      margin-top: 12px;
-    }
-    .list li{
-      display:flex; gap:10px; align-items:flex-start;
-      color: var(--muted);
-      font-size: 14px;
-      padding: 10px 10px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.08);
-      background: rgba(255,255,255,.02);
-    }
-    .list li svg{width:16px; height:16px; color: var(--accent); margin-top:2px}
-
-    /* Form */
-    .formGrid{
-      display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 18px;
-      align-items:start;
-    }
-    form{
-      display:grid;
-      gap: 10px;
-      margin-top: 10px;
-    }
-    .field{
-      display:grid; gap:6px;
-    }
-    label{font-size: 13px; color: rgba(233,237,246,.82); font-weight: 650}
-    input, select, textarea{
-      width:100%;
-      border-radius: 14px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.04);
-      color: var(--text);
-      padding: 12px 12px;
-      font-size: 14px;
-      outline:none;
-      transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease, background .18s ease;
-    }
-    input:focus, select:focus, textarea:focus{
-      border-color: rgba(50,245,123,.45);
-      box-shadow: 0 0 0 3px rgba(50,245,123,.12);
-      background: rgba(255,255,255,.05);
-    }
-    textarea{min-height: 110px; resize: vertical}
-    .helper{font-size: 12px; color: var(--muted2)}
-
-    .notePill{
-      display:inline-flex; align-items:center; gap:8px;
-      border-radius: 999px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.04);
-      padding: 8px 10px;
-      font-size: 12px;
-      color: var(--muted);
-      margin-bottom: 10px;
-    }
-    .notePill svg{width:14px; height:14px; color: var(--accent)}
-
-    /* Footer */
-    footer{
-      border-top: 1px solid rgba(255,255,255,.06);
-      padding: 26px 16px;
-      text-align:center;
-      color: var(--muted);
-      font-size: 13px;
-    }
-    footer a{color: var(--accent)}
-
-    /* Whats float */
-    .waFloat{
-      position:fixed;
-      right: 16px;
-      bottom: 16px;
-      width: 56px;
-      height: 56px;
-      border-radius: 999px;
-      background: radial-gradient(circle at 20% 20%, var(--accent), var(--accent2));
-      border: 1px solid rgba(50,245,123,.65);
-      box-shadow: 0 0 36px rgba(50,245,123,.30);
-      display:grid;
-      place-items:center;
-      z-index: 80;
-      transition: transform .18s ease, filter .18s ease;
-      animation: pulse 2.6s ease-in-out infinite;
-    }
-    .waFloat:hover{transform: translateY(-2px) scale(1.02); filter: brightness(1.02)}
-    .waFloat svg{width: 24px; height: 24px; fill: #06110a}
-    @keyframes pulse{
-      0%{transform: translateY(0); box-shadow: 0 0 36px rgba(50,245,123,.28)}
-      50%{transform: translateY(-3px); box-shadow: 0 0 48px rgba(50,245,123,.40)}
-      100%{transform: translateY(0); box-shadow: 0 0 36px rgba(50,245,123,.28)}
+      font-family: 'Manrope', sans-serif;
+      font-size: 1rem;
+      outline: none;
+      transition: 0.3s;
     }
 
-    /* Reveal animations */
-    .reveal{opacity:0; transform: translateY(14px) scale(.99); transition: opacity .65s ease, transform .65s ease}
-    .reveal.visible{opacity:1; transform: translateY(0) scale(1)}
-    .d1{transition-delay:.08s}
-    .d2{transition-delay:.16s}
-    .d3{transition-delay:.24s}
-
-    /* Responsive */
-    @media (max-width: 980px){
-      .links,.navCtas{display:none}
-      .menuBtn{display:inline-flex}
-      .heroGrid{grid-template-columns: 1fr; gap: 18px}
-      .heroRight{order:-1}
-      .featureBandInner{grid-template-columns: 1fr; gap: 12px}
-      .bigCTA{justify-content:flex-start}
-      .methodGrid{grid-template-columns: 1fr}
-      .twoCol{grid-template-columns: 1fr}
-      .formGrid{grid-template-columns: 1fr}
-      .cycle{height: 320px}
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--brand-color);
     }
-    @media (max-width: 560px){
-      section{padding: 46px 14px}
-      .heroSignals{grid-template-columns: 1fr}
-      .ring{width: 250px; height: 250px}
-      .node{width: 150px}
-      .waFloat{width: 52px; height: 52px; right: 12px; bottom: 12px}
+
+    /* FOOTER */
+    footer {
+      padding: 60px 0;
+      background: var(--bg-surface);
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    /* RESPONSIVIDADE */
+    @media (max-width: 900px) {
+      .hero h1 { font-size: 2.8rem; }
+      .metrics-grid { grid-template-columns: 1fr 1fr; }
+      .metric-item { border-bottom: 1px solid var(--border); }
+      .metric-item:nth-child(2) { border-right: none; }
+      
+      .about-grid { grid-template-columns: 1fr; }
+      .about-img-frame { order: -1; max-width: 400px; margin: 0 auto; }
+      
+      .nav-desk { display: none; }
+      .form-grid { grid-template-columns: 1fr; }
+      .form-full { grid-column: span 1; }
+      .form-wrapper { padding: 30px; }
     }
   </style>
 </head>
-
 <body>
-<div class="wrap">
 
-  <!-- Mobile overlay -->
-  <div class="overlay" id="overlay" aria-hidden="true">
-    <div class="sheet">
-      <div class="sheetCard">
-        <div class="brand" style="margin-bottom:10px;">
-          <div class="brandBadge">AR</div>
-          <div class="brandText">
-            <b>Ademir | Tráfego Pago</b>
-            <span>Social Media • Gestor de Tráfego</span>
-          </div>
+  <header>
+    <div class="container header-inner">
+      <div class="logo">ADEMIR <span>RODRIGUES</span></div>
+      
+      <nav class="nav-desk">
+        <a href="#metodo">O Método</a>
+        <a href="#sobre">Expertise</a>
+        <a href="#servicos">Soluções</a>
+      </nav>
+
+      <a href="#diagnostico" class="btn btn-primary" style="padding: 12px 24px;">
+        Diagnóstico
+      </a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-content">
+      <span class="uppercase-label">Assessoria de Growth & Performance</span>
+      <h1>
+        NÃO VENDEMOS ANÚNCIOS. <br>
+        VENDEMOS O <span style="color: var(--brand-color);">CRESCIMENTO</span> DO SEU NEGÓCIO.
+      </h1>
+      <p>
+        Pare de depender da sorte. Implemente um processo de aquisição de clientes validado em 7 anos de mercado para negócios locais e prestadores de serviço.
+      </p>
+      
+      <div style="margin-top: 40px; display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+        <a href="#diagnostico" class="btn btn-primary">Aplicar para Assessoria</a>
+        <a href="https://wa.me/5567981082158" target="_blank" class="btn btn-outline">Falar no WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="metrics-bar">
+    <div class="container">
+      <div class="metrics-grid">
+        <div class="metric-item">
+          <span class="metric-num">7 Anos</span>
+          <span class="metric-label">De Experiência</span>
         </div>
-
-        <div class="sheetLinks">
-          <a href="#inicio" data-close>Início</a>
-          <a href="#metodo" data-close>O método</a>
-          <a href="#quemSou" data-close>Quem sou</a>
-          <a href="#servicos" data-close>Serviços</a>
-          <a href="#diagnostico" data-close>Diagnóstico</a>
+        <div class="metric-item">
+          <span class="metric-num">Local</span>
+          <span class="metric-label">Especialista Regional</span>
         </div>
-
-        <div class="sheetCtas">
-          <a class="btn btnPrimary" href="#diagnostico" data-close>
-            <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h12m0 0-5-5m5 5-5 5" stroke="#06110a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Quero diagnóstico
-          </a>
-          <a class="btn btnGhost" href="https://wa.me/5567981082158" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M20 16.5c-.5 1.2-2.1 2.2-3.4 2.4-1 .2-2.3.3-5.2-1-3.7-1.7-6-5.8-6.2-6.1-.2-.3-1.5-2.1-1.5-4 0-1.9 1-2.8 1.3-3.2.3-.4.8-.5 1.1-.5h.8c.3 0 .7-.1 1.1.8.4 1 .9 2.4 1 2.6.1.2.2.5 0 .8-.2.3-.3.5-.5.8-.2.2-.4.4-.2.8.2.4 1 1.7 2.1 2.7 1.4 1.2 2.6 1.6 3 1.8.4.2.6.2.8 0 .2-.2 1-1.1 1.2-1.5.2-.4.5-.3.8-.2.3.1 2.1 1 2.4 1.2.3.2.6.3.7.5.1.2.1 1.1-.4 2.3Z" stroke="#e9edf6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Falar no WhatsApp
-          </a>
+        <div class="metric-item">
+          <span class="metric-num">ROI</span>
+          <span class="metric-label">Foco em Retorno</span>
+        </div>
+        <div class="metric-item">
+          <span class="metric-num">100%</span>
+          <span class="metric-label">Transparência</span>
         </div>
       </div>
     </div>
   </div>
 
-  <header>
-    <div class="nav">
-      <div class="brand">
-        <div class="brandBadge">AR</div>
-        <div class="brandText">
-          <b>Ademir | Tráfego Pago</b>
-          <span>@ademirtrafego</span>
+  <section id="metodo" class="section-spacing">
+    <div class="container">
+      <span class="uppercase-label">Metodologia AR</span>
+      <h2 style="margin-bottom: 60px; max-width: 600px; font-size: 2.5rem;">
+        Um processo científico para escalar suas vendas.
+      </h2>
+
+      <div class="method-grid">
+        <div class="method-card">
+          <span class="step-num">01.</span>
+          <h3 class="step-title">Diagnóstico & Estratégia</h3>
+          <p class="step-desc">
+            Não existe "receita de bolo". Analisamos seu momento, margem e gargalos comerciais para desenhar o plano de ataque ideal.
+          </p>
+        </div>
+
+        <div class="method-card">
+          <span class="step-num">02.</span>
+          <h3 class="step-title">Aquisição de Tráfego</h3>
+          <p class="step-desc">
+            Implementação de campanhas no Google e Meta Ads para comprar dados e trazer as pessoas certas para o seu funil.
+          </p>
+        </div>
+
+        <div class="method-card">
+          <span class="step-num">03.</span>
+          <h3 class="step-title">Engajamento & Conversão</h3>
+          <p class="step-desc">
+            Tráfego sem conversão é vaidade. Ajudamos a alinhar sua comunicação e processo de vendas para fechar negócios.
+          </p>
+        </div>
+
+        <div class="method-card">
+          <span class="step-num">04.</span>
+          <h3 class="step-title">Retenção & Otimização</h3>
+          <p class="step-desc">
+            Análise diária de métricas. Cortamos o que dá prejuízo e escalamos o que dá lucro. O objetivo é diminuir seu custo por venda.
+          </p>
         </div>
       </div>
-
-      <nav class="links" aria-label="Navegação">
-        <a href="#inicio">Início</a>
-        <a href="#metodo">O método</a>
-        <a href="#quemSou">Quem sou</a>
-        <a href="#servicos">Serviços</a>
-        <a href="#diagnostico">Diagnóstico</a>
-      </nav>
-
-      <div class="navCtas">
-        <a class="btn btnGhost" href="https://wa.me/5567981082158" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M20 16.5c-.5 1.2-2.1 2.2-3.4 2.4-1 .2-2.3.3-5.2-1-3.7-1.7-6-5.8-6.2-6.1-.2-.3-1.5-2.1-1.5-4 0-1.9 1-2.8 1.3-3.2.3-.4.8-.5 1.1-.5h.8c.3 0 .7-.1 1.1.8.4 1 .9 2.4 1 2.6.1.2.2.5 0 .8-.2.3-.3.5-.5.8-.2.2-.4.4-.2.8.2.4 1 1.7 2.1 2.7 1.4 1.2 2.6 1.6 3 1.8.4.2.6.2.8 0 .2-.2 1-1.1 1.2-1.5.2-.4.5-.3.8-.2.3.1 2.1 1 2.4 1.2.3.2.6.3.7.5.1.2.1 1.1-.4 2.3Z" stroke="#e9edf6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          WhatsApp
-        </a>
-        <a class="btn btnPrimary" href="#diagnostico">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h12m0 0-5-5m5 5-5 5" stroke="#06110a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Diagnóstico
-        </a>
-      </div>
-
-      <button class="menuBtn" id="menuBtn" aria-label="Abrir menu">
-        <svg viewBox="0 0 24 24" fill="none">
-          <path d="M5 7h14M5 12h14M5 17h14" stroke="#e9edf6" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-      </button>
     </div>
-  </header>
+  </section>
 
-  <main>
-
-    <!-- HERO -->
-    <section class="hero" id="inicio">
-      <div class="heroGrid">
-        <div class="heroLeft reveal">
-          <div class="kicker"><span class="dot"></span>TRÁFEGO PAGO • ESTRATÉGIA • EXECUÇÃO</div>
-
-          <h1 class="headlineStrong">
-            Tenha um time feito <span>sob medida</span> para atender seu negócio.
-          </h1>
-
-          <p class="sub">
-            Menos adivinhação, mais clareza. Eu entro no teu cenário, organizo o jogo e monto uma estratégia de tráfego e conteúdo
-            que faça sentido para o seu momento. Sem papo bonito. Trabalho de verdade.
-          </p>
-
-          <div class="heroActions">
-            <a class="btn btnPrimary" href="#diagnostico">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.4-7-11a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 6.6-7 11-7 11Z" stroke="#06110a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              Quero mais informações
-            </a>
-            <a class="btn btnGhost" href="#metodo">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14m7-7H5" stroke="#e9edf6" stroke-width="2" stroke-linecap="round"/></svg>
-              Ver o método
-            </a>
-          </div>
-
-          <div class="heroSignals reveal d1">
-            <div class="signal">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M4 13.5 9 18l11-12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <div>
-                <b>Diagnóstico antes de tudo</b>
-                <span>Sem achismo. Primeiro eu entendo teu cenário.</span>
-              </div>
-            </div>
-            <div class="signal">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M12 3v18m9-9H3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-              <div>
-                <b>Estratégia simples</b>
-                <span>Plano claro, executável e alinhado com tua operação.</span>
-              </div>
-            </div>
-            <div class="signal">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M20 7 10 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <div>
-                <b>Execução consistente</b>
-                <span>O que funciona fica. O que não funciona, corta rápido.</span>
-              </div>
-            </div>
-            <div class="signal">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <div>
-                <b>Rotina de melhoria</b>
-                <span>Ajuste contínuo, sem virar refém de “sorte”.</span>
-              </div>
-            </div>
+  <section id="sobre" class="section-spacing">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-img-frame">
+          <img src="https://res.cloudinary.com/dmdaiwkyl/image/upload/v1765503081/Picsart_25-12-11_21-29-08-660_mscuaj.jpg" alt="Ademir Rodrigues" class="about-img">
+          <div style="position: absolute; bottom: -10px; right: -10px; background: var(--brand-color); padding: 10px 20px; font-weight: 700; font-size: 0.9rem; color: #fff;">
+            FOUNDER & ESTRATEGISTA
           </div>
         </div>
+        
+        <div>
+          <span class="uppercase-label">Quem sou eu</span>
+          <h2 style="font-size: 2.5rem; margin-bottom: 24px;">Ademir Rodrigues</h2>
+          <p style="margin-bottom: 20px; color: #fff; font-size: 1.1rem;">
+            A maioria dos "gestores" só aperta botões. Eu entendo de negócios.
+          </p>
+          <p style="margin-bottom: 20px;">
+            Atuo há 7 anos no mercado digital. Minha filosofia é simples: marketing que não vende é arte, e eu não sou artista. Sou um estrategista focado em fazer o caixa da sua empresa crescer.
+          </p>
+          <p style="margin-bottom: 40px;">
+            Sou pai, cristão e acredito no trabalho sério. Se você busca atalhos ou hacks mágicos, eu não sou para você. Se busca processo e consistência, seja bem-vindo.
+          </p>
 
-        <div class="heroRight reveal d2">
-          <div class="photoGlow"></div>
-          <div class="photoCard">
-            <div class="photoFrame">
-              <img
-                src="https://res.cloudinary.com/dmdaiwkyl/image/upload/v1765503081/Picsart_25-12-11_21-29-08-660_mscuaj.jpg"
-                alt="Ademir Rodrigues"
-              />
+          <div style="display: flex; gap: 30px;">
+            <div>
+              <h4 style="font-size: 1.5rem; color: var(--brand-color);">Ads</h4>
+              <span style="font-size: 0.8rem; text-transform: uppercase;">Google & Meta</span>
             </div>
-            <div class="photoCardInner">
-              <div class="miniTag">Ademir Rodrigues</div>
-              <div class="miniTag">@ademirtrafego</div>
+            <div>
+              <h4 style="font-size: 1.5rem; color: var(--brand-color);">Social</h4>
+              <span style="font-size: 0.8rem; text-transform: uppercase;">Branding</span>
+            </div>
+            <div>
+              <h4 style="font-size: 1.5rem; color: var(--brand-color);">Data</h4>
+              <span style="font-size: 0.8rem; text-transform: uppercase;">Analytics</span>
             </div>
           </div>
         </div>
       </div>
+    </div>
+  </section>
 
-      <div class="featureBand reveal d3">
-        <div class="featureBandInner">
+  <section id="diagnostico" class="section-spacing" style="background: var(--bg-surface);">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 60px;">
+        <span class="uppercase-label" style="color: var(--brand-color);">Próximo Passo</span>
+        <h2 style="font-size: 2.5rem;">Agende seu Diagnóstico</h2>
+        <p style="max-width: 600px; margin: 20px auto 0;">
+          Preencha o formulário. Vamos entender se sua empresa tem o perfil para nossa assessoria de performance.
+        </p>
+      </div>
+
+      <div class="form-wrapper">
+        <form action="https://formspree.io/f/mrbnorol" method="POST" class="form-grid">
+          
           <div>
-            <div class="kicker" style="margin-bottom:8px;"><span class="dot"></span>EXCLUSIVO PARA QUEM QUER CRESCER</div>
-            <h2>O próximo passo não precisa ser confuso.</h2>
-            <p>
-              Você preenche o diagnóstico, eu analiso e te devolvo um direcionamento claro.
-              Se fizer sentido avançar, a gente monta o plano. Se não fizer, eu te falo na lata também.
-            </p>
+            <label>Nome Completo</label>
+            <input type="text" name="name" required placeholder="Seu nome">
           </div>
-          <div class="bigCTA">
-            <a class="btn btnPrimary" href="#diagnostico">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h12m0 0-5-5m5 5-5 5" stroke="#06110a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              Dar o próximo passo
-            </a>
-            <a class="btn btnGhost" href="https://wa.me/5567981082158" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M20 16.5c-.5 1.2-2.1 2.2-3.4 2.4-1 .2-2.3.3-5.2-1-3.7-1.7-6-5.8-6.2-6.1-.2-.3-1.5-2.1-1.5-4 0-1.9 1-2.8 1.3-3.2.3-.4.8-.5 1.1-.5h.8c.3 0 .7-.1 1.1.8.4 1 .9 2.4 1 2.6.1.2.2.5 0 .8-.2.3-.3.5-.5.8-.2.2-.4.4-.2.8.2.4 1 1.7 2.1 2.7 1.4 1.2 2.6 1.6 3 1.8.4.2.6.2.8 0 .2-.2 1-1.1 1.2-1.5.2-.4.5-.3.8-.2.3.1 2.1 1 2.4 1.2.3.2.6.3.7.5.1.2.1 1.1-.4 2.3Z" stroke="#e9edf6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              Falar no WhatsApp
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- METODO -->
-    <section id="metodo">
-      <div class="reveal">
-        <div class="kicker"><span class="dot"></span>O MÉTODO</div>
-        <h2>Existe um método científico para sua empresa nunca parar de vender.</h2>
-        <p class="sub">
-          A ideia é simples: construir um ciclo contínuo de crescimento. Quando você segue o processo,
-          você para de depender de sorte e começa a operar com direção.
-        </p>
-      </div>
-
-      <div class="methodGrid" style="margin-top:18px;">
-        <div class="cycleCard reveal d1">
-          <h3 class="cycleTitle" style="font-size:16px;">O ciclo</h3>
-          <p class="cycleText">
-            Você cresce quando as etapas conversam entre si. Não é só “anúncio”. É operação com lógica.
-          </p>
-
-          <div class="cycle">
-            <div class="ring" aria-hidden="true"></div>
-
-            <div class="node n1">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M4 12a8 8 0 0 1 16 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M12 4v8l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-              <div>
-                <b>Aquisição</b>
-                <span>Gente certa chegando.</span>
-              </div>
-            </div>
-
-            <div class="node n2">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M16 11c1.7 0 3-1.3 3-3S17.7 5 16 5s-3 1.3-3 3 1.3 3 3 3Z" stroke="currentColor" stroke-width="2"/><path d="M8 12c1.7 0 3-1.3 3-3S9.7 6 8 6 5 7.3 5 9s1.3 3 3 3Z" stroke="currentColor" stroke-width="2"/><path d="M8 14c-2.2 0-4 1.8-4 4v1h10v-1c0-2.2-1.8-4-4-4Z" stroke="currentColor" stroke-width="2"/></svg>
-              <div>
-                <b>Engajamento</b>
-                <span>Confiança e atenção.</span>
-              </div>
-            </div>
-
-            <div class="node n3">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M12 1v22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7H14a3.5 3.5 0 0 1 0 7H6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-              <div>
-                <b>Monetização</b>
-                <span>Venda com método.</span>
-              </div>
-            </div>
-
-            <div class="node n4">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M21 8.5c0 6.5-9 12.5-9 12.5S3 15 3 8.5A4.5 4.5 0 0 1 12 6a4.5 4.5 0 0 1 9 2.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <div>
-                <b>Retenção</b>
-                <span>Cliente voltando.</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="cycleCard reveal d2">
-          <h3 style="font-size:16px; margin-bottom:6px;">O que eu faço na prática</h3>
-          <p class="cycleText">
-            Eu entro como “mão firme” pra você parar de patinar. Sem misticismo: diagnóstico, plano, execução e ajuste.
-          </p>
-
-          <ul class="list">
-            <li>
-              <svg viewBox="0 0 24 24" fill="none"><path d="M4 13.5 9 18l11-12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              Alinho oferta, comunicação e anúncio para tudo andar junto.
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none"><path d="M4 13.5 9 18l11-12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              Crio um sistema simples de decisão: o que manter, o que cortar, o que testar.
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none"><path d="M4 13.5 9 18l11-12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              Trabalho para você ganhar previsibilidade, não só “pico” de resultado.
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none"><path d="M4 13.5 9 18l11-12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              Te explico no português do dono do negócio. Sem sigla pra confundir.
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- QUEM SOU -->
-    <section id="quemSou">
-      <div class="reveal">
-        <div class="kicker"><span class="dot"></span>QUEM SOU</div>
-        <h2>Apresentação rápida, sem personagem.</h2>
-        <p class="sub">
-          Sou Ademir Rodrigues, 34 anos, casado, pai de dois filhos, cristão. Trabalho há 7 anos com marketing digital como
-          Social Media e Gestor de Tráfego. Meu foco é colocar estratégia e consistência no teu crescimento.
-        </p>
-      </div>
-
-      <div class="twoCol" style="margin-top:18px;">
-        <div class="stack reveal d1">
-          <div class="infoCard">
-            <h3>O que eu acredito</h3>
-            <p>
-              Resultado bom não vem de “hack”. Vem de um sistema que você consegue sustentar no mês bom e no mês ruim.
-              Meu trabalho é te dar direção e manter a execução no trilho.
-            </p>
-          </div>
-          <div class="infoCard">
-            <h3>O que você ganha comigo</h3>
-            <ul class="list" style="margin-top:0;">
-              <li>
-                <svg viewBox="0 0 24 24" fill="none"><path d="M4 13.5 9 18l11-12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                Clareza do que fazer primeiro e do que não fazer.
-              </li>
-              <li>
-                <svg viewBox="0 0 24 24" fill="none"><path d="M4 13.5 9 18l11-12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                Um plano simples e executável, alinhado com sua operação.
-              </li>
-              <li>
-                <svg viewBox="0 0 24 24" fill="none"><path d="M4 13.5 9 18l11-12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                Ajuste contínuo sem virar refém de “tentativa e erro eterno”.
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="cycleCard reveal d2">
-          <h3 style="font-size:16px; margin-bottom:6px;">Perfil</h3>
-          <p class="cycleText">Aqui é quem eu sou e como eu trabalho, direto ao ponto.</p>
-
-          <ul class="list" style="margin-top:0;">
-            <li>
-              <svg viewBox="0 0 24 24" fill="none"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Z" stroke="currentColor" stroke-width="2"/><path d="M3 21a9 9 0 0 1 18 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-              Ademir Rodrigues, 34 anos.
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none"><path d="M21 8.5c0 6.5-9 12.5-9 12.5S3 15 3 8.5A4.5 4.5 0 0 1 12 6a4.5 4.5 0 0 1 9 2.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              Casado, pai de dois filhos, cristão.
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none"><path d="M3 12h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M6 16h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M9 8h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-              7 anos de mercado em Marketing Digital.
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none"><path d="M4 19V5m0 14h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M7 14l3-3 3 2 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              Social Media e Gestor de Tráfego.
-            </li>
-          </ul>
-
-          <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
-            <a class="btn btnPrimary" href="#diagnostico">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h12m0 0-5-5m5 5-5 5" stroke="#06110a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              Quero diagnóstico
-            </a>
-            <a class="btn btnGhost" href="https://instagram.com/ademirtrafego" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Z" stroke="#e9edf6" stroke-width="2"/><path d="M12 16a4 4 0 1 0-4-4 4 4 0 0 0 4 4Z" stroke="#e9edf6" stroke-width="2"/><path d="M17.5 6.5h.01" stroke="#e9edf6" stroke-width="3" stroke-linecap="round"/></svg>
-              Instagram
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SERVIÇOS -->
-    <section id="servicos">
-      <div class="reveal">
-        <div class="kicker"><span class="dot"></span>SERVIÇOS</div>
-        <h2>Como eu posso te ajudar, na prática.</h2>
-        <p class="sub">
-          Você escolhe o formato que encaixa no seu momento. O objetivo é o mesmo: direção e execução com consistência.
-        </p>
-      </div>
-
-      <div class="methodGrid" style="margin-top:18px;">
-        <div class="cycleCard reveal d1">
-          <h3 style="font-size:16px; margin-bottom:6px;">Gestão de Tráfego</h3>
-          <p class="cycleText">
-            Para quem quer alguém olhando de perto as campanhas, ajustando e mantendo o sistema rodando.
-          </p>
-          <ul class="list" style="margin-top:0;">
-            <li><svg viewBox="0 0 24 24" fill="none"><path d="M4 13.5 9 18l11-12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Planejamento e estrutura da campanha.</li>
-            <li><svg viewBox="0 0 24 24" fill="none"><path d="M4 13.5 9 18l11-12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Criação e testes de criativos e mensagens.</li>
-            <li><svg viewBox="0 0 24 24" fill="none"><path d="M4 13.5 9 18l11-12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Otimização contínua e decisões com critério.</li>
-          </ul>
-        </div>
-
-        <div class="cycleCard reveal d2">
-          <h3 style="font-size:16px; margin-bottom:6px;">Social Media com estratégia</h3>
-          <p class="cycleText">
-            Conteúdo não é “postar por postar”. É construir percepção, confiança e demanda.
-          </p>
-          <ul class="list" style="margin-top:0;">
-            <li><svg viewBox="0 0 24 24" fill="none"><path d="M4 13.5 9 18l11-12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Roteiros e linha editorial alinhados à venda.</li>
-            <li><svg viewBox="0 0 24 24" fill="none"><path d="M4 13.5 9 18l11-12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Posicionamento e mensagem para o público certo.</li>
-            <li><svg viewBox="0 0 24 24" fill="none"><path d="M4 13.5 9 18l11-12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Conteúdo que sustenta a estratégia de tráfego.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- DIAGNÓSTICO -->
-    <section id="diagnostico">
-      <div class="reveal">
-        <div class="kicker"><span class="dot"></span>DIAGNÓSTICO</div>
-        <h2>Dar o próximo passo leva menos de um minuto.</h2>
-        <p class="sub">
-          Preencha o formulário com calma. Quanto mais claro você for, melhor fica a minha leitura.
-        </p>
-      </div>
-
-      <div class="formGrid" style="margin-top:18px;">
-        <div class="cycleCard reveal d1">
-          <div class="notePill">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V7l-8-4-8 4v5c0 6 8 10 8 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Seus dados chegam direto pra mim via Formspree.
+          
+          <div>
+            <label>WhatsApp Comercial</label>
+            <input type="tel" name="whatsapp" required placeholder="(DDD) 99999-9999">
           </div>
 
-          <form action="https://formspree.io/f/mrbnorol" method="POST">
-            <div class="field">
-              <label for="nome">Nome e sobrenome</label>
-              <input id="nome" name="nome" type="text" placeholder="Seu nome" required />
-            </div>
+          <div class="form-full">
+            <label>Instagram da Empresa</label>
+            <input type="text" name="instagram" placeholder="@suaempresa">
+          </div>
 
-            <div class="field">
-              <label for="email">E-mail (corporativo ou principal)</label>
-              <input id="email" name="email" type="email" placeholder="seuemail@dominio.com" required />
-            </div>
+          <div class="form-full">
+            <label>Qual seu faturamento mensal aproximado?</label>
+            <select name="faturamento">
+              <option value="">Selecione uma opção</option>
+              <option value="ate-10k">Até R$ 10.000</option>
+              <option value="10k-50k">R$ 10.000 a R$ 50.000</option>
+              <option value="50k-100k">R$ 50.000 a R$ 100.000</option>
+              <option value="acima-100k">Acima de R$ 100.000</option>
+            </select>
+          </div>
 
-            <div class="field">
-              <label for="whats">WhatsApp</label>
-              <input id="whats" name="whatsapp" type="tel" placeholder="(67) 98108-2158" required />
-              <div class="helper">Eu respondo por aqui com o direcionamento do diagnóstico.</div>
-            </div>
+          <div class="form-full">
+            <label>Qual sua maior dificuldade em vender hoje?</label>
+            <textarea name="message" rows="3" placeholder="Ex: Leads desqualificados, falta de visibilidade..."></textarea>
+          </div>
 
-            <div class="field">
-              <label for="empresa">Nome da empresa</label>
-              <input id="empresa" name="empresa" type="text" placeholder="Nome do seu negócio" />
-            </div>
-
-            <div class="field">
-              <label for="instagram">Instagram do negócio</label>
-              <input id="instagram" name="instagram" type="text" placeholder="@seunegocio" />
-            </div>
-
-            <div class="field">
-              <label for="cidade">Cidade / Estado</label>
-              <input id="cidade" name="cidade" type="text" placeholder="Cidade - UF" />
-            </div>
-
-            <div class="field">
-              <label for="segmento">Segmento</label>
-              <input id="segmento" name="segmento" type="text" placeholder="Clínica, salão, restaurante, serviço..." />
-            </div>
-
-            <div class="field">
-              <label for="objetivo">Objetivo principal (em uma frase)</label>
-              <input id="objetivo" name="objetivo" type="text" placeholder="Ex: aumentar procura, vender mais, lotar agenda..." />
-            </div>
-
-            <div class="field">
-              <label for="invest">Quanto você pretende investir por mês em anúncios?</label>
-              <input id="invest" name="investimento" type="text" placeholder="Ex: R$ 500, R$ 1.000, R$ 3.000..." />
-            </div>
-
-            <div class="field">
-              <label for="dor">Qual sua maior dificuldade hoje?</label>
-              <textarea id="dor" name="dificuldade" placeholder="Seja direto: o que está travando seu crescimento?"></textarea>
-            </div>
-
-            <button class="btn btnPrimary" type="submit" style="justify-content:center; width:100%; padding:12px 14px;">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M22 2 11 13" stroke="#06110a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 2 15 22l-4-9-9-4 20-7Z" stroke="#06110a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              Enviar diagnóstico
+          <div class="form-full" style="margin-top: 20px;">
+            <button type="submit" class="btn btn-primary" style="width: 100%;">
+              Enviar Aplicação
             </button>
-
-            <div class="helper" style="margin-top:6px;">
-              Se eu enxergar que ainda não é hora de tráfego, eu também vou te falar. Melhor isso do que você queimar grana.
-            </div>
-          </form>
-        </div>
-
-        <div class="cycleCard reveal d2">
-          <h3 style="font-size:16px; margin-bottom:6px;">O que acontece depois</h3>
-          <p class="cycleText">
-            A ideia é te dar clareza. Não é empurrar serviço. Eu olho teu cenário e te devolvo um caminho.
-          </p>
-          <ul class="list" style="margin-top:0;">
-            <li>
-              <svg viewBox="0 0 24 24" fill="none"><path d="M4 13.5 9 18l11-12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              Eu analiso seu momento e sua estrutura.
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none"><path d="M4 13.5 9 18l11-12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              Identifico o gargalo principal (oferta, comunicação, tráfego, atendimento).
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none"><path d="M4 13.5 9 18l11-12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              Te respondo com direcionamento: próximos passos e prioridade.
-            </li>
-          </ul>
-
-          <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
-            <a class="btn btnGhost" href="https://instagram.com/ademirtrafego" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Z" stroke="#e9edf6" stroke-width="2"/><path d="M12 16a4 4 0 1 0-4-4 4 4 0 0 0 4 4Z" stroke="#e9edf6" stroke-width="2"/><path d="M17.5 6.5h.01" stroke="#e9edf6" stroke-width="3" stroke-linecap="round"/></svg>
-              @ademirtrafego
-            </a>
-            <a class="btn btnGhost" href="https://wa.me/5567981082158" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M20 16.5c-.5 1.2-2.1 2.2-3.4 2.4-1 .2-2.3.3-5.2-1-3.7-1.7-6-5.8-6.2-6.1-.2-.3-1.5-2.1-1.5-4 0-1.9 1-2.8 1.3-3.2.3-.4.8-.5 1.1-.5h.8c.3 0 .7-.1 1.1.8.4 1 .9 2.4 1 2.6.1.2.2.5 0 .8-.2.3-.3.5-.5.8-.2.2-.4.4-.2.8.2.4 1 1.7 2.1 2.7 1.4 1.2 2.6 1.6 3 1.8.4.2.6.2.8 0 .2-.2 1-1.1 1.2-1.5.2-.4.5-.3.8-.2.3.1 2.1 1 2.4 1.2.3.2.6.3.7.5.1.2.1 1.1-.4 2.3Z" stroke="#e9edf6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              WhatsApp
-            </a>
+            <p style="text-align: center; font-size: 0.8rem; margin-top: 15px; color: var(--text-muted);">
+              Seus dados serão analisados pessoalmente por Ademir.
+            </p>
           </div>
-        </div>
-      </div>
-    </section>
 
-  </main>
+        </form>
+      </div>
+    </div>
+  </section>
 
   <footer>
-    © 2025 • <b>Ademir | Tráfego Pago</b> •
-    <a href="https://instagram.com/ademirtrafego" target="_blank" rel="noopener">@ademirtrafego</a>
+    <div class="container">
+      <div class="logo" style="margin-bottom: 20px;">ADEMIR <span>RODRIGUES</span></div>
+      <p style="font-size: 0.9rem; margin-bottom: 30px;">
+        Assessoria de Performance para Negócios Locais.<br>
+        Foco em ROI, Processo e Vendas.
+      </p>
+      <div style="display: flex; gap: 20px; justify-content: center;">
+        <a href="https://instagram.com/ademirtrafego" target="_blank" style="color: #fff; font-size: 0.9rem; font-weight: 700;">INSTAGRAM</a>
+        <a href="https://wa.me/5567981082158" target="_blank" style="color: #fff; font-size: 0.9rem; font-weight: 700;">WHATSAPP</a>
+      </div>
+      <div style="margin-top: 40px; font-size: 0.75rem; color: var(--text-muted);">
+        &copy; 2025 Ademir Rodrigues. Todos os direitos reservados.
+      </div>
+    </div>
   </footer>
 
-  <!-- WhatsApp floating -->
-  <a class="waFloat" href="https://wa.me/5567981082158" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
-    <svg viewBox="0 0 24 24">
-      <path d="M12.04 2C6.58 2 2.2 6.29 2.2 11.64c0 1.83.51 3.52 1.39 4.99L2 22l5.53-1.54c1.43.79 3.07 1.24 4.82 1.24 5.46 0 9.84-4.28 9.84-9.64C22.19 6.29 17.7 2 12.04 2zm0 17.33c-1.52 0-2.93-.41-4.14-1.14l-.3-.18-3.28.91.9-3.12-.2-.32a7.17 7.17 0 0 1-1.12-3.94c0-4.01 3.37-7.27 7.48-7.27 4.1 0 7.47 3.26 7.47 7.27 0 4.01-3.37 7.27-7.47 7.27z"/>
-      <path d="M16.2 13.21c-.25-.13-1.47-.76-1.7-.85-.23-.09-.4-.13-.57.13-.17.26-.65.85-.8 1.03-.15.17-.29.2-.54.07-.25-.13-1.05-.41-2-1.3-.74-.7-1.24-1.56-1.39-1.82-.15-.26-.02-.4.11-.53.12-.12.25-.32.38-.48.13-.16.17-.26.25-.43.08-.17.04-.32-.02-.45-.06-.13-.57-1.37-.78-1.87-.2-.48-.4-.41-.57-.42l-.49-.01c-.17 0-.45.06-.68.29-.23.23-.89.86-.89 2.09 0 1.23.9 2.43 1.03 2.6.13.17 1.76 2.78 4.32 3.79.6.24 1.07.38 1.44.48.61.19 1.16.16 1.6.1.49-.07 1.47-.6 1.68-1.17.21-.57.21-1.05.15-1.16-.06-.11-.22-.17-.47-.3z"/>
-    </svg>
-  </a>
-
-</div>
-
-<script>
-  // Mobile menu
-  const overlay = document.getElementById('overlay');
-  const menuBtn = document.getElementById('menuBtn');
-  const closeLinks = document.querySelectorAll('[data-close]');
-
-  function openMenu(){ overlay.classList.add('active'); overlay.setAttribute('aria-hidden','false'); }
-  function closeMenu(){ overlay.classList.remove('active'); overlay.setAttribute('aria-hidden','true'); }
-
-  menuBtn?.addEventListener('click', openMenu);
-  overlay?.addEventListener('click', (e) => { if(e.target === overlay) closeMenu(); });
-  closeLinks.forEach(a => a.addEventListener('click', closeMenu));
-  document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeMenu(); });
-
-  // Reveal on scroll
-  const reveals = document.querySelectorAll('.reveal');
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        entry.target.classList.add('visible');
-        obs.unobserve(entry.target);
-      }
-    });
-  }, {threshold: 0.15});
-  reveals.forEach(el => obs.observe(el));
-</script>
 </body>
 </html>
