@@ -1,475 +1,519 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <title>Ademir Rodrigues | Assessoria de Performance</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Assessoria de tráfego pago e growth para negócios locais. Método validado em 7 anos de mercado." />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ademir Rodrigues | Estrategista de Aquisição Digital</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF0000; /* Vermelho vibrante */
+            --secondary: #8B0000;
+            --dark: #0A0A0A;
+            --surface: #121212;
+            --text-main: #FFFFFF;
+            --text-dim: #A0A0A0;
+            --accent-glow: rgba(255, 0, 0, 0.3);
+        }
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
 
-  <style>
-    :root {
-      /* CORES INSPIRADAS NA REFERÊNCIA (V4 STYLE) */
-      --bg-body: #050505;       /* Preto Absoluto */
-      --bg-surface: #101010;    /* Cinza Chumbo */
-      --bg-hover: #1a1a1a;
-      
-      /* O Vermelho V4 (para agressividade comercial) */
-      --brand-color: #DC2626;   
-      --brand-dark: #991b1b;
-      
-      --text-main: #ffffff;
-      --text-muted: #a3a3a3;
-      
-      --border: rgba(255, 255, 255, 0.1);
-      --container: 1200px;
-    }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-    /* RESET & BASE */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    
-    html { scroll-behavior: smooth; }
-    
-    body {
-      background-color: var(--bg-body);
-      color: var(--text-main);
-      font-family: 'Manrope', sans-serif;
-      overflow-x: hidden;
-      line-height: 1.5;
-    }
+        /* Animações */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-    h1, h2, h3, h4 { font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; color: #fff; }
-    p { color: var(--text-muted); font-size: 1rem; font-weight: 400; }
-    a { text-decoration: none; transition: 0.3s; }
+        @keyframes glowPulse {
+            0% { box-shadow: 0 0 5px var(--primary); }
+            50% { box-shadow: 0 0 20px var(--primary); }
+            100% { box-shadow: 0 0 5px var(--primary); }
+        }
 
-    /* UTILITÁRIOS */
-    .container { max-width: var(--container); margin: 0 auto; padding: 0 24px; }
-    
-    .section-spacing { padding: 100px 0; border-bottom: 1px solid var(--border); }
-    
-    .uppercase-label {
-      text-transform: uppercase;
-      font-size: 0.75rem;
-      letter-spacing: 3px;
-      color: var(--brand-color);
-      font-weight: 700;
-      margin-bottom: 16px;
-      display: block;
-    }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
 
-    /* BOTÕES (Estilo Industrial) */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 16px 32px;
-      font-size: 0.9rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      border: 1px solid transparent;
-    }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-    .btn-primary {
-      background-color: var(--brand-color);
-      color: #fff;
-    }
-    .btn-primary:hover { background-color: var(--brand-dark); }
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 5%;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
 
-    .btn-outline {
-      background: transparent;
-      border: 1px solid rgba(255,255,255,0.3);
-      color: #fff;
-    }
-    .btn-outline:hover {
-      border-color: #fff;
-      background: #fff;
-      color: #000;
-    }
+        .logo {
+            font-weight: 900;
+            font-size: 1.5rem;
+            letter-spacing: -1px;
+        }
 
-    /* HEADER */
-    header {
-      position: fixed;
-      top: 0; left: 0; width: 100%;
-      background: rgba(5, 5, 5, 0.9);
-      backdrop-filter: blur(10px);
-      z-index: 999;
-      border-bottom: 1px solid var(--border);
-      height: 80px;
-      display: flex;
-      align-items: center;
-    }
+        .logo span { color: var(--primary); }
 
-    .header-inner { display: flex; justify-content: space-between; align-items: center; width: 100%; }
-    
-    .logo { font-size: 1.5rem; font-weight: 800; letter-spacing: -1px; }
-    .logo span { color: var(--brand-color); }
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: 0.3s;
+        }
 
-    .nav-desk { display: flex; gap: 40px; }
-    .nav-desk a { color: var(--text-muted); font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
-    .nav-desk a:hover { color: #fff; }
+        nav a:hover { color: var(--primary); }
 
-    /* HERO SECTION */
-    .hero {
-      padding-top: 180px;
-      padding-bottom: 100px;
-      background: 
-        linear-gradient(to bottom, rgba(5,5,5,0) 0%, #050505 100%),
-        radial-gradient(circle at 50% 30%, rgba(220, 38, 38, 0.15), transparent 50%);
-    }
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 8%;
+            background: radial-gradient(circle at 80% 20%, var(--accent-glow), transparent 40%);
+        }
 
-    .hero-content { text-align: center; max-width: 900px; margin: 0 auto; }
-    
-    .hero h1 {
-      font-size: clamp(2.5rem, 6vw, 4.5rem);
-      margin-bottom: 24px;
-    }
+        .hero-content {
+            max-width: 700px;
+            z-index: 2;
+        }
 
-    .hero p {
-      font-size: 1.25rem;
-      max-width: 600px;
-      margin: 0 auto 40px auto;
-    }
+        .hero h1 {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            font-weight: 900;
+        }
 
-    /* GRID DE MÉTRICAS (Barra de Autoridade) */
-    .metrics-bar {
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      background: var(--bg-surface);
-    }
-    .metrics-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-    }
-    .metric-item {
-      padding: 40px 20px;
-      text-align: center;
-      border-right: 1px solid var(--border);
-    }
-    .metric-item:last-child { border-right: none; }
-    
-    .metric-num { font-size: 2.5rem; font-weight: 800; color: #fff; display: block; margin-bottom: 5px; }
-    .metric-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); }
+        .hero h1 span {
+            display: block;
+            color: var(--primary);
+            text-shadow: 0 0 15px var(--accent-glow);
+        }
 
-    /* O MÉTODO (GRID ESTRUTURADO) */
-    .method-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1px; /* Gap cria as linhas da grade */
-      background: var(--border); /* Cor das linhas */
-      border: 1px solid var(--border);
-    }
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-dim);
+            margin-bottom: 35px;
+            max-width: 550px;
+        }
 
-    .method-card {
-      background: var(--bg-body);
-      padding: 40px;
-      transition: background 0.3s;
-    }
-    .method-card:hover { background: var(--bg-surface); }
+        .hero-image-container {
+            position: absolute;
+            right: 5%;
+            top: 55%;
+            transform: translateY(-50%);
+            width: 450px;
+            height: 550px;
+            z-index: 1;
+        }
 
-    .step-num { color: var(--brand-color); font-weight: 700; font-size: 1.2rem; margin-bottom: 15px; display: block; }
-    .step-title { font-size: 1.5rem; margin-bottom: 15px; }
-    .step-desc { font-size: 0.95rem; line-height: 1.6; }
+        .hero-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+            filter: grayscale(30%);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
 
-    /* SOBRE (LADO A LADO) */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-    }
+        /* Botões */
+        .btn {
+            display: inline-block;
+            padding: 18px 35px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+            animation: glowPulse 2s infinite;
+        }
 
-    .about-img-frame {
-      position: relative;
-      border: 1px solid var(--border);
-      padding: 20px;
-    }
-    .about-img {
-      width: 100%;
-      display: block;
-      filter: grayscale(100%) contrast(1.1); /* Estilo V4 P&B */
-      transition: 0.5s;
-    }
-    .about-img:hover { filter: grayscale(0%); }
+        .btn:hover {
+            transform: scale(1.05);
+            background: var(--secondary);
+        }
 
-    /* FORMULÁRIO (DIAGNÓSTICO) */
-    .form-wrapper {
-      background: var(--bg-surface);
-      padding: 60px;
-      border: 1px solid var(--border);
-      max-width: 800px;
-      margin: 0 auto;
-    }
+        /* Seção Sobre / Bio */
+        .bio {
+            padding: 100px 8%;
+            background: var(--surface);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
 
-    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-    .form-full { grid-column: span 2; }
+        .bio-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
 
-    label { display: block; font-size: 0.8rem; text-transform: uppercase; font-weight: 700; margin-bottom: 8px; letter-spacing: 1px; }
+        .bio-text h2 span { color: var(--primary); }
 
-    input, select, textarea {
-      width: 100%;
-      background: var(--bg-body);
-      border: 1px solid var(--border);
-      color: #fff;
-      padding: 16px;
-      font-family: 'Manrope', sans-serif;
-      font-size: 1rem;
-      outline: none;
-      transition: 0.3s;
-    }
+        .bio-text p {
+            color: var(--text-dim);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
 
-    input:focus, select:focus, textarea:focus {
-      border-color: var(--brand-color);
-    }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+        }
 
-    /* FOOTER */
-    footer {
-      padding: 60px 0;
-      background: var(--bg-surface);
-      border-top: 1px solid var(--border);
-      text-align: center;
-    }
+        .stat-item h3 {
+            font-size: 2rem;
+            color: var(--primary);
+        }
 
-    /* RESPONSIVIDADE */
-    @media (max-width: 900px) {
-      .hero h1 { font-size: 2.8rem; }
-      .metrics-grid { grid-template-columns: 1fr 1fr; }
-      .metric-item { border-bottom: 1px solid var(--border); }
-      .metric-item:nth-child(2) { border-right: none; }
-      
-      .about-grid { grid-template-columns: 1fr; }
-      .about-img-frame { order: -1; max-width: 400px; margin: 0 auto; }
-      
-      .nav-desk { display: none; }
-      .form-grid { grid-template-columns: 1fr; }
-      .form-full { grid-column: span 1; }
-      .form-wrapper { padding: 30px; }
-    }
-  </style>
+        .stat-item p { font-size: 0.8rem; color: var(--text-dim); }
+
+        /* Serviços / Planos */
+        .services {
+            padding: 100px 8%;
+            text-align: center;
+        }
+
+        .section-header { margin-bottom: 60px; }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.03);
+            padding: 40px;
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: 0.4s;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            border-color: var(--primary);
+            background: rgba(255,0,0,0.05);
+            transform: translateY(-10px);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .card ul {
+            list-style: none;
+            margin: 20px 0;
+            color: var(--text-dim);
+        }
+
+        .card ul li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .card ul li::before {
+            content: "✓";
+            color: var(--primary);
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .price {
+            font-size: 1.8rem;
+            font-weight: 900;
+            margin: 20px 0;
+            display: block;
+        }
+
+        .featured {
+            border: 2px solid var(--primary);
+            transform: scale(1.05);
+        }
+
+        .tag {
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: var(--primary);
+            padding: 5px 40px;
+            transform: rotate(45deg);
+            font-size: 0.7rem;
+            font-weight: 700;
+        }
+
+        /* FAQ */
+        .faq {
+            padding: 100px 8%;
+            background: var(--surface);
+        }
+
+        .faq-item {
+            max-width: 800px;
+            margin: 0 auto 15px;
+            background: var(--dark);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            font-weight: 700;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: 0.3s ease-out;
+            color: var(--text-dim);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 20px;
+            max-height: 200px;
+        }
+
+        /* Formulário de Contato */
+        .contact {
+            padding: 100px 8%;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 50px;
+        }
+
+        .contact-form {
+            background: var(--surface);
+            padding: 40px;
+            border-radius: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 15px;
+            background: var(--dark);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: white;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        input:focus, textarea:focus {
+            border-color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            padding: 50px 8%;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            color: var(--text-dim);
+        }
+
+        /* Responsividade */
+        @media (max-width: 1024px) {
+            .hero-image-container { display: none; }
+            .hero { text-align: center; justify-content: center; }
+            .bio { grid-template-columns: 1fr; }
+            .contact { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 3rem; }
+        }
+    </style>
 </head>
 <body>
 
-  <header>
-    <div class="container header-inner">
-      <div class="logo">ADEMIR <span>RODRIGUES</span></div>
-      
-      <nav class="nav-desk">
-        <a href="#metodo">O Método</a>
-        <a href="#sobre">Expertise</a>
-        <a href="#servicos">Soluções</a>
-      </nav>
+    <header>
+        <div class="logo">ADEMIR <span>RODRIGUES</span></div>
+        <nav>
+            <a href="#inicio">Início</a>
+            <a href="#servicos">Estratégias</a>
+            <a href="#faq">Dúvidas</a>
+            <a href="#contato">Contato</a>
+        </nav>
+    </header>
 
-      <a href="#diagnostico" class="btn btn-primary" style="padding: 12px 24px;">
-        Diagnóstico
-      </a>
-    </div>
-  </header>
-
-  <section class="hero">
-    <div class="container hero-content">
-      <span class="uppercase-label">Assessoria de Growth & Performance</span>
-      <h1>
-        NÃO VENDEMOS ANÚNCIOS. <br>
-        VENDEMOS O <span style="color: var(--brand-color);">CRESCIMENTO</span> DO SEU NEGÓCIO.
-      </h1>
-      <p>
-        Pare de depender da sorte. Implemente um processo de aquisição de clientes validado em 7 anos de mercado para negócios locais e prestadores de serviço.
-      </p>
-      
-      <div style="margin-top: 40px; display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-        <a href="#diagnostico" class="btn btn-primary">Aplicar para Assessoria</a>
-        <a href="https://wa.me/5567981082158" target="_blank" class="btn btn-outline">Falar no WhatsApp</a>
-      </div>
-    </div>
-  </section>
-
-  <div class="metrics-bar">
-    <div class="container">
-      <div class="metrics-grid">
-        <div class="metric-item">
-          <span class="metric-num">7 Anos</span>
-          <span class="metric-label">De Experiência</span>
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h1>Não vendo anúncios, vendo <span>Crescimento Previsível.</span></h1>
+            <p>Estrategista de Aquisição focado em Meta Ads, Google Ads e Engenharia de Funis para negócios que buscam escala sustentável e ROI real.</p>
+            <a href="#servicos" class="btn">Escalar meu faturamento</a>
         </div>
-        <div class="metric-item">
-          <span class="metric-num">Local</span>
-          <span class="metric-label">Especialista Regional</span>
+        <div class="hero-image-container">
+            <img src="https://res.cloudinary.com/dmdaiwkyl/image/upload/v1765503081/Picsart_25-12-11_21-29-08-660_mscuaj.jpg" alt="Ademir Rodrigues">
         </div>
-        <div class="metric-item">
-          <span class="metric-num">ROI</span>
-          <span class="metric-label">Foco em Retorno</span>
-        </div>
-        <div class="metric-item">
-          <span class="metric-num">100%</span>
-          <span class="metric-label">Transparência</span>
-        </div>
-      </div>
-    </div>
-  </div>
+    </section>
 
-  <section id="metodo" class="section-spacing">
-    <div class="container">
-      <span class="uppercase-label">Metodologia AR</span>
-      <h2 style="margin-bottom: 60px; max-width: 600px; font-size: 2.5rem;">
-        Um processo científico para escalar suas vendas.
-      </h2>
-
-      <div class="method-grid">
-        <div class="method-card">
-          <span class="step-num">01.</span>
-          <h3 class="step-title">Diagnóstico & Estratégia</h3>
-          <p class="step-desc">
-            Não existe "receita de bolo". Analisamos seu momento, margem e gargalos comerciais para desenhar o plano de ataque ideal.
-          </p>
-        </div>
-
-        <div class="method-card">
-          <span class="step-num">02.</span>
-          <h3 class="step-title">Aquisição de Tráfego</h3>
-          <p class="step-desc">
-            Implementação de campanhas no Google e Meta Ads para comprar dados e trazer as pessoas certas para o seu funil.
-          </p>
-        </div>
-
-        <div class="method-card">
-          <span class="step-num">03.</span>
-          <h3 class="step-title">Engajamento & Conversão</h3>
-          <p class="step-desc">
-            Tráfego sem conversão é vaidade. Ajudamos a alinhar sua comunicação e processo de vendas para fechar negócios.
-          </p>
-        </div>
-
-        <div class="method-card">
-          <span class="step-num">04.</span>
-          <h3 class="step-title">Retenção & Otimização</h3>
-          <p class="step-desc">
-            Análise diária de métricas. Cortamos o que dá prejuízo e escalamos o que dá lucro. O objetivo é diminuir seu custo por venda.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="sobre" class="section-spacing">
-    <div class="container">
-      <div class="about-grid">
-        <div class="about-img-frame">
-          <img src="https://res.cloudinary.com/dmdaiwkyl/image/upload/v1765503081/Picsart_25-12-11_21-29-08-660_mscuaj.jpg" alt="Ademir Rodrigues" class="about-img">
-          <div style="position: absolute; bottom: -10px; right: -10px; background: var(--brand-color); padding: 10px 20px; font-weight: 700; font-size: 0.9rem; color: #fff;">
-            FOUNDER & ESTRATEGISTA
-          </div>
-        </div>
-        
-        <div>
-          <span class="uppercase-label">Quem sou eu</span>
-          <h2 style="font-size: 2.5rem; margin-bottom: 24px;">Ademir Rodrigues</h2>
-          <p style="margin-bottom: 20px; color: #fff; font-size: 1.1rem;">
-            A maioria dos "gestores" só aperta botões. Eu entendo de negócios.
-          </p>
-          <p style="margin-bottom: 20px;">
-            Atuo há 7 anos no mercado digital. Minha filosofia é simples: marketing que não vende é arte, e eu não sou artista. Sou um estrategista focado em fazer o caixa da sua empresa crescer.
-          </p>
-          <p style="margin-bottom: 40px;">
-            Sou pai, casado com a Mônica, cristão e acredito no trabalho sério. Se você busca atalhos ou hacks mágicos, eu não sou para você. Se busca processo e consistência, seja bem-vindo.
-          </p>
-
-          <div style="display: flex; gap: 30px;">
-            <div>
-              <h4 style="font-size: 1.5rem; color: var(--brand-color);">Ads</h4>
-              <span style="font-size: 0.8rem; text-transform: uppercase;">Google & Meta</span>
+    <section class="bio reveal">
+        <div class="bio-text">
+            <h2>Gestão de Tráfego <span>Orientada a Dados</span></h2>
+            <p>Ademir Rodrigues é estrategista de aquisição digital com foco em gerar leads qualificados. Sua abordagem combina análise técnica avançada e engenharia de funis.</p>
+            <p>Mais do que criar campanhas, Ademir desenvolve ecossistemas que integram anúncios, qualificação e conversão, garantindo previsibilidade comercial.</p>
+            <div class="stats">
+                <div class="stat-item"><h3>+500</h3><p>Campanhas Ativas</p></div>
+                <div class="stat-item"><h3>+7a</h3><p>Experiência</p></div>
+                <div class="stat-item"><h3>300%</h3><p>ROI Médio</p></div>
             </div>
-            <div>
-              <h4 style="font-size: 1.5rem; color: var(--brand-color);">Social</h4>
-              <span style="font-size: 0.8rem; text-transform: uppercase;">Branding</span>
-            </div>
-            <div>
-              <h4 style="font-size: 1.5rem; color: var(--brand-color);">Data</h4>
-              <span style="font-size: 0.8rem; text-transform: uppercase;">Analytics</span>
-            </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </section>
+        <div class="bio-cards">
+            <div class="card" style="margin-bottom: 20px;">
+                <h3>Clareza Estratégica</h3>
+                <p>Definição precisa de público, oferta e proposta de valor antes do primeiro centavo investido.</p>
+            </div>
+            <div class="card">
+                <h3>Escala Sustentável</h3>
+                <p>Crescimento baseado em métricas reais (LTV, CAC, CPA), eliminando o achismo do seu marketing.</p>
+            </div>
+        </div>
+    </section>
 
-  <section id="diagnostico" class="section-spacing" style="background: var(--bg-surface);">
-    <div class="container">
-      <div style="text-align: center; margin-bottom: 60px;">
-        <span class="uppercase-label" style="color: var(--brand-color);">Próximo Passo</span>
-        <h2 style="font-size: 2.5rem;">Agende seu Diagnóstico</h2>
-        <p style="max-width: 600px; margin: 20px auto 0;">
-          Preencha o formulário. Vamos entender se sua empresa tem o perfil para nossa assessoria de performance.
-        </p>
-      </div>
+    <section class="services reveal" id="servicos">
+        <div class="section-header">
+            <h2>Sistemas de <span>Aquisição</span></h2>
+            <p>Escolha o nível de escala do seu negócio hoje</p>
+        </div>
+        <div class="cards-container">
+            <div class="card">
+                <h3>Diagnóstico Estratégico</h3>
+                <span class="price">R$ 997</span>
+                <p>Análise profunda para identificar gargalos no seu funil atual.</p>
+                <ul>
+                    <li>Análise de Canais</li>
+                    <li>Plano de Ação 30 dias</li>
+                    <li>Call de Entrega (1h)</li>
+                </ul>
+                <a href="https://wa.me/5567981082158?text=Quero o Diagnóstico Estratégico" class="btn" style="width: 100%; text-align: center;">Contratar</a>
+            </div>
+            <div class="card featured">
+                <div class="tag">POPULAR</div>
+                <h3>Gestão Performance</h3>
+                <span class="price">R$ 2.997<small>/mês</small></span>
+                <p>Gestão diária e otimização de campanhas para escala vertical.</p>
+                <ul>
+                    <li>Meta + Google Ads</li>
+                    <li>Dashboards em tempo real</li>
+                    <li>Otimização de Conversão</li>
+                    <li>Suporte VIP WhatsApp</li>
+                </ul>
+                <a href="https://wa.me/5567981082158?text=Quero a Gestão de Performance" class="btn" style="width: 100%; text-align: center;">Escalar Agora</a>
+            </div>
+            <div class="card">
+                <h3>Engenharia de Funil</h3>
+                <span class="price">Sob Consulta</span>
+                <p>Desenvolvimento do ecossistema completo de vendas.</p>
+                <ul>
+                    <li>Tracking Avançado</li>
+                    <li>Copywriting de Vendas</li>
+                    <li>Estruturação de CRM</li>
+                    <li>Consultoria de Processos</li>
+                </ul>
+                <a href="https://wa.me/5567981082158?text=Quero Engenharia de Funil" class="btn" style="width: 100%; text-align: center; background: transparent; border: 1px solid var(--primary);">Falar com Ademir</a>
+            </div>
+        </div>
+    </section>
 
-      <div class="form-wrapper">
-        <form action="https://formspree.io/f/mrbnorol" method="POST" class="form-grid">
-          
-          <div>
-            <label>Nome Completo</label>
-            <input type="text" name="name" required placeholder="Seu nome">
-          </div>
-          
-          <div>
-            <label>WhatsApp Comercial</label>
-            <input type="tel" name="whatsapp" required placeholder="(DDD) 99999-9999">
-          </div>
+    <section class="faq reveal" id="faq">
+        <h2 style="text-align:center; margin-bottom: 50px;">Perguntas <span>Frequentes</span></h2>
+        <div class="faq-item">
+            <div class="faq-question">Quanto preciso investir em anúncios? <span>+</span></div>
+            <div class="faq-answer">O recomendado é iniciar com no mínimo R$ 1.500,00/mês em verba de anúncios para que tenhamos massa de dados suficiente para otimização técnica.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">Em quanto tempo vejo resultados? <span>+</span></div>
+            <div class="faq-answer">Nas primeiras 72h as campanhas entram no ar. Resultados consistentes de escala costumam aparecer entre o 1º e 2º mês de otimização contínua.</div>
+        </div>
+    </section>
 
-          <div class="form-full">
-            <label>Instagram da Empresa</label>
-            <input type="text" name="instagram" placeholder="@suaempresa">
-          </div>
+    <section class="contact reveal" id="contato">
+        <div class="contact-text">
+            <h2>Pronto para <span>parar de queimar dinheiro</span> com anúncios?</h2>
+            <p>Preencha os dados e receba um contato em até 24h para avaliarmos seu cenário comercial.</p>
+            <br>
+            <p><strong>WhatsApp:</strong> (67) 98108-2158</p>
+            <p><strong>Instagram:</strong> @ademirtrafego</p>
+        </div>
+        <div class="contact-form">
+            <form id="formWpp">
+                <div class="form-group"><input type="text" id="nome" placeholder="Seu Nome" required></div>
+                <div class="form-group"><input type="text" id="empresa" placeholder="Sua Empresa" required></div>
+                <div class="form-group"><textarea id="msg" placeholder="Qual seu faturamento atual e sua meta?"></textarea></div>
+                <button type="submit" class="btn" style="width: 100%; cursor: pointer; border: none;">Enviar Solicitação</button>
+            </form>
+        </div>
+    </section>
 
-          <div class="form-full">
-            <label>Qual seu faturamento mensal aproximado?</label>
-            <select name="faturamento">
-              <option value="">Selecione uma opção</option>
-              <option value="ate-10k">Até R$ 10.000</option>
-              <option value="10k-50k">R$ 10.000 a R$ 50.000</option>
-              <option value="50k-100k">R$ 50.000 a R$ 100.000</option>
-              <option value="acima-100k">Acima de R$ 100.000</option>
-            </select>
-          </div>
+    <footer>
+        <p>&copy; 2026 Ademir Rodrigues - Todos os direitos reservados.</p>
+        <p style="font-size: 0.7rem; margin-top: 10px;">Estrategista em Aquisição Digital e Engenharia de Dados.</p>
+    </footer>
 
-          <div class="form-full">
-            <label>Qual sua maior dificuldade em vender hoje?</label>
-            <textarea name="message" rows="3" placeholder="Ex: Leads desqualificados, falta de visibilidade..."></textarea>
-          </div>
+    <script>
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(q => {
+            q.addEventListener('click', () => {
+                q.parentElement.classList.toggle('active');
+            });
+        });
 
-          <div class="form-full" style="margin-top: 20px;">
-            <button type="submit" class="btn btn-primary" style="width: 100%;">
-              Enviar Aplicação
-            </button>
-            <p style="text-align: center; font-size: 0.8rem; margin-top: 15px; color: var(--text-muted);">
-              Seus dados serão analisados pessoalmente por Ademir.
-            </p>
-          </div>
+        // Revelar ao scroll
+        window.addEventListener('scroll', () => {
+            document.querySelectorAll('.reveal').forEach(el => {
+                if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+                    el.classList.add('active');
+                }
+            });
+        });
 
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container">
-      <div class="logo" style="margin-bottom: 20px;">ADEMIR <span>RODRIGUES</span></div>
-      <p style="font-size: 0.9rem; margin-bottom: 30px;">
-        Assessoria de Performance para Negócios Locais.<br>
-        Foco em ROI, Processo e Vendas.
-      </p>
-      <div style="display: flex; gap: 20px; justify-content: center;">
-        <a href="https://instagram.com/ademirtrafego" target="_blank" style="color: #fff; font-size: 0.9rem; font-weight: 700;">INSTAGRAM</a>
-        <a href="https://wa.me/5567981082158" target="_blank" style="color: #fff; font-size: 0.9rem; font-weight: 700;">WHATSAPP</a>
-      </div>
-      <div style="margin-top: 40px; font-size: 0.75rem; color: var(--text-muted);">
-        &copy; 2025 Ademir Rodrigues. Todos os direitos reservados.
-      </div>
-    </div>
-  </footer>
-
+        // Form para WhatsApp
+        document.getElementById('formWpp').addEventListener('submit', function(e) {
+            e.preventDefault();
+            let nome = document.getElementById('nome').value;
+            let empresa = document.getElementById('empresa').value;
+            let msg = document.getElementById('msg').value;
+            let texto = `Olá Ademir, meu nome é ${nome} da empresa ${empresa}. ${msg}`;
+            window.open(`https://wa.me/5567981082158?text=${encodeURIComponent(texto)}`);
+        });
+    </script>
 </body>
 </html>
