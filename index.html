@@ -2,394 +2,1254 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Ademir Rodrigues | Strategic Acquisition Specialist</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ademir Rodrigues | Gestor de Tráfego 2026</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
         :root {
-            --primary: #FF0000;
-            --dark: #050505;
-            --surface: #0F0F0F;
-            --text: #FFFFFF;
-            --text-dim: #B0B0B0;
-            --accent-glow: rgba(255, 0, 0, 0.5);
+            --preto: #000000;
+            --vermelho: #FF0000;
+            --vermelho-escuro: #CC0000;
+            --branco: #FFFFFF;
+            --cinza: #1A1A1A;
+            --cinza-claro: #F5F5F5;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-        body { background: var(--dark); color: var(--text); overflow-x: hidden; width: 100%; }
+        body {
+            background-color: var(--branco);
+            color: var(--preto);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-        /* HEADER */
+        /* Animações Globais */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Header */
         header {
-            position: fixed; top: 0; width: 100%; padding: 15px 5%;
-            background: rgba(5, 5, 5, 0.98); backdrop-filter: blur(20px);
-            z-index: 1000; display: flex; justify-content: space-between; align-items: center;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+            background-color: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            color: var(--branco);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid var(--vermelho);
+            animation: slideInDown 0.5s ease;
         }
-        .logo { font-weight: 900; font-size: 1.2rem; letter-spacing: -1px; }
-        .logo span { color: var(--primary); }
 
-        .lang-switcher button {
-            background: transparent; border: 1px solid var(--text-dim);
-            color: var(--text); padding: 5px 10px; cursor: pointer; border-radius: 4px;
-            font-size: 0.7rem; margin-left: 3px; transition: 0.3s; font-weight: 700;
+        @keyframes slideInDown {
+            from {
+                transform: translateY(-100%);
+            }
+            to {
+                transform: translateY(0);
+            }
         }
-        .lang-switcher button.active { background: var(--primary); border-color: var(--primary); }
 
-        /* HERO SECTION */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--branco);
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo span {
+            color: var(--vermelho);
+            position: relative;
+        }
+
+        .logo span::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--vermelho);
+            animation: slideInRight 1s ease infinite;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: var(--branco);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            padding: 5px 0;
+            transition: color 0.3s;
+        }
+
+        nav ul li a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--vermelho);
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::before {
+            width: 100%;
+        }
+
+        nav ul li a:hover {
+            color: var(--vermelho);
+        }
+
+        /* Hero Section */
         .hero {
-            min-height: 100vh; display: flex; align-items: center; padding: 100px 5% 50px;
-            background: radial-gradient(circle at center, var(--accent-glow), transparent 70%);
-        }
-        .hero-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; width: 100%; }
-        .hero-content { text-align: left; }
-        .hero-content h1 { font-size: clamp(2.2rem, 8vw, 4.5rem); font-weight: 900; line-height: 1.1; margin-bottom: 20px; }
-        .hero-content h1 span { color: var(--primary); }
-        .hero-content p { font-size: clamp(1rem, 4vw, 1.2rem); color: var(--text-dim); margin-bottom: 30px; }
-
-        .profile-img-container { width: 100%; display: flex; justify-content: center; }
-        .profile-img { 
-            width: 100%; max-width: 420px; border-radius: 20px; 
-            border: 3px solid var(--primary); box-shadow: 0 0 30px rgba(255,0,0,0.3);
+            background: linear-gradient(135deg, var(--preto) 0%, var(--cinza) 50%, var(--preto) 100%);
+            background-size: 200% 200%;
+            animation: gradientBG 10s ease infinite;
+            color: var(--branco);
+            padding: 180px 0 120px;
+            margin-top: 60px;
+            position: relative;
+            overflow: hidden;
         }
 
-        /* BIG DATA BAR */
-        .stats-bar { 
-            padding: 40px 5%; background: var(--surface); 
-            display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; 
-            text-align: center; border-bottom: 2px solid var(--primary); 
-        }
-        .stat-box h2 { font-size: clamp(1.8rem, 6vw, 3rem); font-weight: 900; color: var(--primary); }
-        .stat-box p { font-size: 0.7rem; font-weight: 700; color: var(--text-dim); text-transform: uppercase; }
-
-        /* DASHBOARD / BIO */
-        .dashboard { padding: 60px 5%; display: grid; grid-template-columns: 1fr; gap: 40px; }
-        .chart-box { background: var(--surface); padding: 20px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.05); width: 100%; }
-        .about-bio { text-align: center; }
-        .section-title { font-size: clamp(1.8rem, 6vw, 2.8rem); font-weight: 900; margin-bottom: 30px; text-align: center; width: 100%; }
-        .section-title span { color: var(--primary); }
-
-        /* GRIDS (MOTIVOS / PLANOS) */
-        .grid-cards { 
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-            gap: 20px; padding: 40px 5%; width: 100%;
-        }
-        .card-item { 
-            background: var(--surface); padding: 30px; border-radius: 15px; 
-            border-bottom: 4px solid transparent; transition: 0.3s; text-align: center;
-        }
-        .card-item i { font-size: 2.2rem; color: var(--primary); margin-bottom: 20px; }
-
-        /* TESTIMONIALS (AUTO-WIDTH) */
-        .testi-section { padding: 60px 5%; background: var(--dark); text-align: center; overflow: hidden; }
-        .testi-track { display: flex; transition: transform 0.5s ease-in-out; }
-        .testi-card { min-width: 100%; padding: 30px; background: var(--surface); border-radius: 15px; border: 1px solid var(--primary); }
-        .testi-card p { font-size: clamp(1rem, 4vw, 1.4rem); font-style: italic; color: var(--text-dim); margin-bottom: 20px; }
-
-        /* FAQ */
-        .faq { padding: 60px 5%; }
-        .faq-item { width: 100%; max-width: 800px; margin: 0 auto 10px; background: var(--surface); border-radius: 10px; }
-        .faq-question { padding: 20px; display: flex; justify-content: space-between; font-weight: 800; font-size: 0.9rem; text-align: left; }
-        .faq-answer { padding: 0 20px; max-height: 0; overflow: hidden; transition: 0.3s; color: var(--text-dim); font-size: 0.85rem; }
-        .faq-item.active .faq-answer { padding-bottom: 20px; max-height: 300px; }
-
-        /* BUTTONS */
-        .btn-main {
-            display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-            padding: 18px 30px; background: var(--primary); color: white;
-            text-decoration: none; font-weight: 900; border-radius: 8px;
-            text-transform: uppercase; transition: 0.3s; width: 100%; max-width: 400px;
-            box-shadow: 0 0 15px var(--accent-glow);
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,0,0,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
         }
 
-        /* FORM */
-        .contact-box { background: var(--surface); padding: 30px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); width: 100%; }
-        input, select, textarea { width: 100%; padding: 15px; background: var(--dark); border: 1px solid #333; color: white; border-radius: 8px; margin-bottom: 15px; outline: none; }
-
-        /* FOOTER */
-        footer { padding: 40px 5%; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-dim); font-size: 0.8rem; }
-
-        /* AJUSTES MOBILE ESPECÍFICOS */
-        @media (max-width: 900px) {
-            .hero-grid { grid-template-columns: 1fr; text-align: center; }
-            .hero-content { order: 2; }
-            .hero-content h1 { margin-top: 20px; }
-            .profile-img-container { order: 1; }
-            .hero-content p { text-align: center; }
-            .btn-main { margin: 0 auto; }
-            .dashboard { padding: 40px 5%; }
-            .big-numbers-mobile { grid-template-columns: repeat(2, 1fr); }
-            .stats-bar { grid-template-columns: repeat(2, 1fr); gap: 15px; }
-            .stat-box h2 { font-size: 1.8rem; }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -50%;
+            left: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,0,0,0.05) 0%, transparent 70%);
+            animation: rotate 25s linear infinite reverse;
         }
 
-        @media (min-width: 901px) {
-            .dashboard { grid-template-columns: 1.2fr 1fr; }
-            .about-bio { text-align: left; }
-            .stats-bar { grid-template-columns: repeat(4, 1fr); }
-            .btn-main { width: auto; }
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text {
+            animation: slideInLeft 1s ease;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            color: var(--vermelho);
+            position: relative;
+            display: inline-block;
+            animation: pulse 2s ease infinite;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: var(--cinza-claro);
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .hero-image {
+            animation: float 6s ease infinite;
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(255,0,0,0.3);
+            border: 3px solid var(--vermelho);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .hero-image img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 30px 60px rgba(255,0,0,0.4);
+        }
+
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            bottom: -20px;
+            border: 2px solid var(--vermelho);
+            border-radius: 30px;
+            animation: pulse 2s ease infinite;
+            opacity: 0.3;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--vermelho);
+            color: var(--branco);
+            padding: 15px 35px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 50px;
+            transition: all 0.3s;
+            margin-right: 15px;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+            z-index: -1;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255,0,0,0.4);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--vermelho);
+            color: var(--branco);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--vermelho);
+        }
+
+        .btn-whatsapp {
+            background: linear-gradient(45deg, #25D366, #128C7E);
+            background-size: 200% 200%;
+            animation: gradientBG 3s ease infinite;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Stats Section */
+        .stats {
+            background: linear-gradient(135deg, var(--vermelho) 0%, var(--vermelho-escuro) 100%);
+            padding: 60px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+            animation: slideInLeft 3s linear infinite;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-item {
+            color: var(--branco);
+            animation: fadeInUp 1s ease;
+            animation-fill-mode: both;
+        }
+
+        .stat-item:nth-child(1) { animation-delay: 0.1s; }
+        .stat-item:nth-child(2) { animation-delay: 0.3s; }
+        .stat-item:nth-child(3) { animation-delay: 0.5s; }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            animation: pulse 2s ease infinite;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--cinza-claro) 0%, var(--branco) 100%);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 42px;
+            margin-bottom: 60px;
+            position: relative;
+            animation: fadeInUp 1s ease;
+        }
+
+        .section-title span {
+            color: var(--vermelho);
+            position: relative;
+        }
+
+        .section-title span::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--vermelho);
+            animation: pulse 2s ease infinite;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--branco);
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1s ease;
+            animation-fill-mode: both;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,0,0,0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+            animation: rotate 10s linear infinite;
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(255,0,0,0.2);
+        }
+
+        .service-card i {
+            font-size: 48px;
+            color: var(--vermelho);
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover i {
+            transform: scale(1.2) rotate(360deg);
+            transition: transform 0.6s;
+        }
+
+        .service-card:nth-child(1) { animation-delay: 0.1s; }
+        .service-card:nth-child(2) { animation-delay: 0.2s; }
+        .service-card:nth-child(3) { animation-delay: 0.3s; }
+        .service-card:nth-child(4) { animation-delay: 0.4s; }
+        .service-card:nth-child(5) { animation-delay: 0.5s; }
+        .service-card:nth-child(6) { animation-delay: 0.6s; }
+
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--preto) 0%, var(--cinza) 100%);
+            color: var(--branco);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text {
+            animation: slideInLeft 1s ease;
+        }
+
+        .about-text h3 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: var(--vermelho);
+        }
+
+        .about-image {
+            animation: slideInRight 1s ease;
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 30px;
+            border: 4px solid var(--vermelho);
+            box-shadow: 0 20px 40px rgba(255,0,0,0.3);
+            transition: all 0.3s;
+            animation: float 6s ease infinite;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.02);
+            box-shadow: 0 30px 60px rgba(255,0,0,0.4);
+        }
+
+        .instagram-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(45deg, #f09433, #d62976, #962fbf, #4f5bd5);
+            background-size: 300% 300%;
+            animation: gradientBG 5s ease infinite;
+            color: var(--branco);
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .instagram-badge:hover {
+            transform: scale(1.05);
+            border-color: var(--branco);
+        }
+
+        /* Differential Section */
+        .differential {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--branco) 0%, var(--cinza-claro) 100%);
+        }
+
+        .differential-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .differential-item {
+            text-align: center;
+            padding: 40px;
+            background: var(--branco);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            animation: fadeInUp 1s ease;
+            animation-fill-mode: both;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .differential-item::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--vermelho);
+            transition: width 0.3s;
+        }
+
+        .differential-item:hover::after {
+            width: 100%;
+        }
+
+        .differential-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(255,0,0,0.2);
+        }
+
+        .differential-item i {
+            font-size: 48px;
+            color: var(--vermelho);
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+        }
+
+        .differential-item:hover i {
+            transform: scale(1.2) rotateY(180deg);
+        }
+
+        .differential-item:nth-child(1) { animation-delay: 0.1s; }
+        .differential-item:nth-child(2) { animation-delay: 0.3s; }
+        .differential-item:nth-child(3) { animation-delay: 0.5s; }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--preto) 0%, var(--cinza) 100%);
+            color: var(--branco);
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            position: relative;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+            animation: fadeInUp 1s ease;
+            animation-fill-mode: both;
+        }
+
+        .step:nth-child(1) { animation-delay: 0.1s; }
+        .step:nth-child(2) { animation-delay: 0.3s; }
+        .step:nth-child(3) { animation-delay: 0.5s; }
+        .step:nth-child(4) { animation-delay: 0.7s; }
+
+        .step:not(:last-child)::after {
+            content: '→';
+            position: absolute;
+            right: -15px;
+            top: 30px;
+            font-size: 30px;
+            color: var(--vermelho);
+            animation: pulse 1s ease infinite;
+        }
+
+        .step-number {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--vermelho) 0%, var(--vermelho-escuro) 100%);
+            color: var(--branco);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: bold;
+            margin: 0 auto 20px;
+            box-shadow: 0 10px 20px rgba(255,0,0,0.3);
+            transition: all 0.3s;
+        }
+
+        .step:hover .step-number {
+            transform: scale(1.1) rotate(360deg);
+            box-shadow: 0 15px 30px rgba(255,0,0,0.4);
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--vermelho) 0%, #8B0000 100%);
+            background-size: 200% 200%;
+            animation: gradientBG 5s ease infinite;
+            color: var(--branco);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1974&q=80') center/cover;
+            opacity: 0.1;
+            animation: pulse 4s ease infinite;
+        }
+
+        .cta h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 1s ease 0.3s both;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta .btn {
+            background-color: var(--preto);
+            animation: pulse 2s ease infinite;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta .btn:hover {
+            background-color: var(--branco);
+            color: var(--preto);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--cinza-claro) 0%, var(--branco) 100%);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, var(--preto) 0%, var(--cinza) 100%);
+            color: var(--branco);
+            padding: 50px;
+            border-radius: 30px;
+            animation: slideInLeft 1s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-info::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,0,0,0.1) 0%, transparent 70%);
+            animation: rotate 15s linear infinite;
+        }
+
+        .contact-info h3 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: var(--vermelho);
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-details {
+            margin: 30px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-details div {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+        }
+
+        .contact-details div:hover {
+            transform: translateX(10px);
+        }
+
+        .contact-details i {
+            color: var(--vermelho);
+            font-size: 24px;
+            width: 30px;
+            animation: pulse 2s ease infinite;
+        }
+
+        .contact-details a {
+            color: var(--branco);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-details a:hover {
+            color: var(--vermelho);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .social-links a {
+            color: var(--branco);
+            font-size: 28px;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--vermelho);
+            transform: translateY(-5px) scale(1.2);
+        }
+
+        .contact-form {
+            background: var(--branco);
+            padding: 50px;
+            border-radius: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            animation: slideInRight 1s ease;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 15px;
+            font-size: 16px;
+            transition: all 0.3s;
+            background: var(--cinza-claro);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--vermelho);
+            box-shadow: 0 0 20px rgba(255,0,0,0.2);
+            transform: scale(1.02);
+            outline: none;
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(45deg, #25D366, #128C7E);
+            color: var(--branco);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 35px;
+            line-height: 70px;
+            z-index: 1000;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s;
+            animation: pulse 2s ease infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.15) rotate(360deg);
+            box-shadow: 0 15px 35px rgba(37, 211, 102, 0.6);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--preto);
+            color: var(--branco);
+            padding: 30px 0;
+            text-align: center;
+            border-top: 3px solid var(--vermelho);
+        }
+
+        footer p {
+            animation: pulse 3s ease infinite;
+        }
+
+        footer span {
+            color: var(--vermelho);
+        }
+
+        /* Loading Animation */
+        .loading-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--vermelho), var(--branco), var(--vermelho));
+            animation: loading 2s ease infinite;
+            z-index: 9999;
+        }
+
+        @keyframes loading {
+            0% { width: 0%; left: 0; }
+            50% { width: 100%; left: 0; }
+            100% { width: 0%; left: 100%; }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero-content,
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .stats-grid,
+            .differential-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            .step:not(:last-child)::after {
+                content: '↓';
+                right: auto;
+                bottom: -30px;
+                top: auto;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .btn {
+                display: block;
+                margin: 10px 0;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+        }
+
+        /* Scroll Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body>
+    <div class="loading-bar"></div>
 
     <header>
-        <div class="logo">ADEMIR <span>RODRIGUES</span></div>
-        <div class="lang-switcher">
-            <button onclick="changeLang('pt')" id="btn-pt" class="active">PT</button>
-            <button onclick="changeLang('en')" id="btn-en">EN</button>
-            <button onclick="changeLang('es')" id="btn-es">ES</button>
+        <div class="container header-content">
+            <a href="#" class="logo">Ademir<span>Rodrigues</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#como-funciona">Como Funciona</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <section class="hero" id="inicio">
-        <div class="hero-grid">
-            <div class="profile-img-container">
-                <img src="https://res.cloudinary.com/dmdaiwkyl/image/upload/v1765503081/Picsart_25-12-11_21-29-08-660_mscuaj.jpg" class="profile-img" alt="Ademir Rodrigues">
+    <a href="https://wa.me/5567981082158?text=Olá!%20Ademir,%20vi%20seu%20site%20e%20quero%20saber%20mais%20sobre%20seus%20serviços%20de%20tráfego%20pago." class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>Transforme <span>Visitas em Vendas</span> com Tráfego Pago em 2026</h1>
+                <p>Especialista em Facebook Ads, Google Ads e TikTok Ads. Estratégias personalizadas para seu negócio escalar com resultados previsíveis.</p>
+                <a href="https://wa.me/5567981082158?text=Olá!%20Ademir,%20vi%20seu%20site%20e%20quero%20saber%20mais%20sobre%20seus%20serviços%20de%20tráfego%20pago." class="btn btn-whatsapp" target="_blank">
+                    <i class="fab fa-whatsapp"></i> QUERO VENDER MAIS
+                </a>
+                <a href="#servicos" class="btn btn-outline">CONHEÇA MEUS SERVIÇOS</a>
             </div>
-            <div class="hero-content">
-                <h1 id="hero-title">O Fim do <span>Amadorismo</span> na sua Aquisição.</h1>
-                <p id="hero-desc">Sistemas de escala orientados por engenharia de dados. Gerenciei mais de R$ 3 milhões transformando cliques em ROI previsível.</p>
-                <div style="width: 100%; display: flex; justify-content: center;">
-                    <a href="#contato" class="btn-main"><span id="hero-btn">Consultoria VIP</span> <i class="fas fa-bolt"></i></a>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1974&q=80" alt="Marketing Digital 2026">
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">+500%</div>
+                    <p>Crescimento Médio</p>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">150+</div>
+                    <p>Clientes Atendidos</p>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">R$ 8M+</div>
+                    <p>Em Vendas Geradas</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="stats-bar">
-        <div class="stat-box"><h2>+1000</h2><p id="st1">Campanhas</p></div>
-        <div class="stat-box"><h2>7</h2><p id="st2">Anos</p></div>
-        <div class="stat-box"><h2>R$ 3M</h2><p id="st3">Gerenciados</p></div>
-        <div class="stat-box"><h2>320%</h2><p id="st4">ROI Médio</p></div>
-    </section>
-
-    <section class="dashboard">
-        <div class="chart-box">
-            <canvas id="performanceChart"></canvas>
+    <section class="services" id="servicos">
+        <div class="container">
+            <h2 class="section-title">Serviços <span>Especializados</span></h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fab fa-facebook"></i>
+                    <h3>Facebook & Instagram Ads</h3>
+                    <p>Anúncios estratégicos para alcançar seu público-alvo nas principais redes sociais.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fab fa-google"></i>
+                    <h3>Google Ads</h3>
+                    <p>Capture clientes no momento exato da busca com campanhas de alta conversão.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fab fa-tiktok"></i>
+                    <h3>TikTok Ads</h3>
+                    <p>Aproveite o algoritmo mais poderoso de 2026 para escalar seus resultados.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Analytics & BI</h3>
+                    <p>Dados em tempo real para decisões estratégicas e otimização constante.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-pen-fancy"></i>
+                    <h3>Copywriting</h3>
+                    <p>Textos persuasivos que convertem visitantes em clientes fiéis.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-bullseye"></i>
+                    <h3>Funil de Vendas</h3>
+                    <p>Estratégia completa da atração à conversão com remarketing inteligente.</p>
+                </div>
+            </div>
         </div>
-        <div class="about-bio">
-            <h2 id="about-t" style="margin-bottom: 20px;">Engenharia de <span>Tráfego Real</span></h2>
-            <div id="bio-text" style="line-height: 1.8; color: var(--text-dim);"></div>
+    </section>
+
+    <section class="about" id="sobre">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Ademir Rodrigues</h3>
+                    <p>Especialista em tráfego pago com mais de 5 anos de experiência no mercado digital. Ajudo empreendedores a transformarem investimento em resultados reais através de estratégias data-driven.</p>
+                    <p>Minha missão é descomplicar o mundo dos anúncios online e entregar resultados consistentes para pequenas e médias empresas.</p>
+                    <a href="https://www.instagram.com/ademirtrafego/" class="instagram-badge" target="_blank">
+                        <i class="fab fa-instagram"></i> @ademirtrafego
+                    </a>
+                </div>
+                <div class="about-image">
+                    <img src="https://res.cloudinary.com/dmdaiwkyl/image/upload/v1765503081/Picsart_25-12-11_21-29-08-660_mscuaj.jpg" alt="Ademir Rodrigues">
+                </div>
+            </div>
         </div>
     </section>
 
-    <section>
-        <h2 class="section-title" id="mot-t">Por que me <span>Escolher?</span></h2>
-        <div class="grid-cards" id="mot-grid"></div>
+    <section class="differential">
+        <div class="container">
+            <h2 class="section-title">Meus <span>Diferenciais</span></h2>
+            <div class="differential-grid">
+                <div class="differential-item">
+                    <i class="fas fa-chart-pie"></i>
+                    <h3>Análise de Dados</h3>
+                    <p>Decisões baseadas em dados reais, não em achismos. Acompanhamento diário das métricas que importam.</p>
+                </div>
+                <div class="differential-item">
+                    <i class="fas fa-rocket"></i>
+                    <h3>Otimização 24/7</h3>
+                    <p>Campanhas otimizadas constantemente para maximizar ROI e reduzir custos.</p>
+                </div>
+                <div class="differential-item">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <h3>Atendimento Premium</h3>
+                    <p>Relatórios semanais, reuniões de alinhamento e suporte rápido via WhatsApp.</p>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section style="background: var(--surface);">
-        <h2 class="section-title" id="p-t" style="padding-top: 60px;">Modelos de <span>Parceria</span></h2>
-        <div class="grid-cards" id="planGrid"></div>
+    <section class="how-it-works" id="como-funciona">
+        <div class="container">
+            <h2 class="section-title">Como <span>Funciona</span></h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Diagnóstico</h3>
+                    <p>Análise completa do seu negócio, mercado e concorrência</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Estratégia</h3>
+                    <p>Plano personalizado com metas e objetivos claros</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Execução</h3>
+                    <p>Criação e configuração das campanhas otimizadas</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Resultados</h3>
+                    <p>Acompanhamento e otimização contínua para máxima performance</p>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section class="testi-section">
-        <h2 class="section-title" id="t-t">Provas de <span>Impacto</span></h2>
-        <div class="testi-track" id="testiTrack"></div>
+    <section class="cta">
+        <div class="container">
+            <h2>Pronto para escalar seu negócio em 2026?</h2>
+            <p>Agende uma call estratégica gratuita e descubra como podemos transformar seus resultados com as melhores estratégias de tráfego pago.</p>
+            <a href="https://wa.me/5567981082158?text=Olá!%20Ademir,%20vi%20seu%20site%20e%20quero%20saber%20mais%20sobre%20seus%20serviços%20de%20tráfego%20pago." class="btn" target="_blank">FALAR NO WHATSAPP</a>
+        </div>
     </section>
 
-    <section class="faq">
-        <h2 class="section-title" id="f-t">Dúvidas <span>Frequentes</span></h2>
-        <div id="faqList"></div>
-    </section>
-
-    <section id="contato" style="padding: 60px 5%;">
-        <div class="contact-box">
-            <h2 id="form-t" style="text-align: center; margin-bottom: 30px;">Qualifique seu <span>Negócio</span></h2>
-            <form id="finalForm">
-                <input type="text" id="fnome" placeholder="Nome Completo" required>
-                <input type="text" id="femp" placeholder="Nicho / Empresa" required>
-                <select id="finvest">
-                    <option value="5k-10k">R$ 5k - 10k/mês</option>
-                    <option value="10k-50k">R$ 10k - 50k/mês</option>
-                    <option value="50k+">Acima de R$ 50k/mês</option>
-                </select>
-                <textarea id="fmsg" style="height: 120px;" placeholder="Qual sua meta de ROI?"></textarea>
-                <button type="submit" class="btn-main" style="width: 100%;">Enviar no WhatsApp</button>
-            </form>
+    <section class="contact" id="contato">
+        <div class="container">
+            <h2 class="section-title">Fale <span>Comigo</span></h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Vamos Conversar?</h3>
+                    <p>Estou pronto para ajudar seu negócio a crescer com estratégias de tráfego pago de alta performance.</p>
+                    <div class="contact-details">
+                        <div>
+                            <i class="fab fa-whatsapp"></i>
+                            <a href="https://wa.me/5567981082158" target="_blank">(67) 98108-2158</a>
+                        </div>
+                        <div>
+                            <i class="fab fa-instagram"></i>
+                            <a href="https://www.instagram.com/ademirtrafego/" target="_blank">@ademirtrafego</a>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/ademirtrafego/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/5567981082158" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm" onsubmit="enviarContato(event)">
+                        <div class="form-group">
+                            <input type="text" id="nome" placeholder="Seu nome" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="whatsapp" placeholder="Seu WhatsApp" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="empresa" placeholder="Nome da sua empresa">
+                        </div>
+                        <div class="form-group">
+                            <textarea id="mensagem" placeholder="Como posso ajudar?" required></textarea>
+                        </div>
+                        <button type="submit" class="btn" style="width: 100%;">ENVIAR MENSAGEM</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </section>
 
     <footer>
-        <p>© 2026 Ademir Rodrigues | Acquisition Strategist</p>
+        <div class="container">
+            <p>Ademir<span>Rodrigues</span> &copy; 2026 - Gestão de Tráfego Pago</p>
+            <p style="margin-top: 10px;">WhatsApp: (67) 98108-2158 | Instagram: @ademirtrafego</p>
+        </div>
     </footer>
 
     <script>
-        const content = {
-            pt: {
-                heroT: "O Fim do <span>Amadorismo</span> na sua Aquisição.",
-                heroD: "Sistemas de escala orientados por engenharia de dados. Gerenciei mais de R$ 3 milhões transformando cliques em ROI previsível.",
-                heroB: "Consultoria VIP",
-                st1: "Campanhas", st2: "Anos", st3: "Gerenciados", st4: "ROI Médio",
-                aboutT: "Engenharia de <span>Tráfego Real</span>",
-                bio: "<p>Ademir Rodrigues é estrategista de tráfego pago focado em geração previsível de leads e construção de ecossistemas de vendas.</p><p>Sua abordagem une análise técnica em Meta e Google Ads, garantindo escala e ROI sustentável para negócios internacionais.</p>",
-                motT: "Por que me <span>Escolher?</span>",
-                mots: [
-                    {i: "fa-microchip", t: "Blindagem", d: "Contingência para nichos sensíveis."},
-                    {i: "fa-globe", t: "Global", d: "Especialista em público imigrante nos EUA."},
-                    {i: "fa-chart-pie", t: "Escala", d: "Metodologia para dobrar o ROI."}
-                ],
-                planT: "Modelos de <span>Parceria</span>",
-                plans: [
-                    {t: "Diagnóstico", d: "Auditoria completa da sua operação.", b: "Solicitar"},
-                    {t: "Gestão VIP", d: "Gestão diária Ads + Tracking API.", b: "Contratar"},
-                    {t: "Engenharia", d: "Ecossistema global de escala.", b: "Consultar"}
-                ],
-                testis: [
-                    {p: "Faturamento dobrou em 60 dias nos EUA.", s: "Empresa Imigração"},
-                    {p: "ROI de 6x no primeiro lançamento técnico.", s: "Infoprodutor"},
-                    {p: "Parceiro de negócio real, foco em lucro.", s: "Startup Tech"}
-                ],
-                faqT: "Dúvidas <span>Frequentes</span>",
-                faqs: [
-                    ["Como funciona o contrato?", "Trabalhamos com ciclos mensais focados em performance."],
-                    ["Qual investimento mínimo?", "Recomendamos acima de R$ 5.000,00 para dados."],
-                    ["Faz criativos?", "Entregamos roteiros e direção estratégica."],
-                    ["Atende nicho Black?", "Sim, com contingência técnica."],
-                    ["Como vejo resultados?", "Dashboard exclusivo em tempo real."],
-                    ["Atende fora do Brasil?", "Sim, especialista no mercado EUA."],
-                    ["Google Ads incluído?", "Sim, somos especialistas Google e Meta."]
-                ],
-                formT: "Qualifique seu <span>Negócio</span>",
-                testiT: "Provas de <span>Impacto</span>"
-            },
-            en: {
-                heroT: "The End of <span>Amateurism</span> in Acquisition.",
-                heroD: "Data-driven scaling systems. Managed over $3M transforming clicks into predictable ROI.",
-                heroB: "VIP Consulting",
-                st1: "Campaigns", st2: "Years", st3: "Managed", st4: "Avg ROI",
-                aboutT: "Real <span>Traffic Engineering</span>",
-                bio: "<p>Ademir Rodrigues is a paid traffic strategist focused on predictable lead generation and building sales ecosystems.</p>",
-                motT: "Why <span>Choose Me?</span>",
-                mots: [
-                    {i: "fa-microchip", t: "Shielding", d: "Contingency for sensitive niches."},
-                    {i: "fa-globe", t: "Global", d: "Expert in US immigrant audiences."},
-                    {i: "fa-chart-pie", t: "Scale", d: "Methodology to double ROI."}
-                ],
-                planT: "Partnership <span>Models</span>",
-                plans: [
-                    {t: "Audit", d: "Complete audit of your operation.", b: "Request"},
-                    {t: "VIP Management", d: "Daily Ads + Tracking API.", b: "Hire"},
-                    {t: "Engineering", d: "Global scale ecosystem.", b: "Consult"}
-                ],
-                testis: [
-                    {p: "Revenue doubled in 60 days in the US.", s: "Immigration Firm"},
-                    {p: "6x ROI on the first technical launch.", s: "Infoproduct"},
-                    {p: "Real business partner, focus on profit.", s: "Tech Startup"}
-                ],
-                faqT: "Common <span>Questions</span>",
-                faqs: [
-                    ["Contract details?", "We work with performance-based monthly cycles."],
-                    ["Minimum investment?", "We recommend above $1,000 for data."],
-                    ["Creative assets?", "We provide strategic direction and scripts."],
-                    ["Black niche?", "Yes, with technical contingency."],
-                    ["Result tracking?", "Exclusive real-time dashboard."],
-                    ["International?", "Yes, specialist in the US market."],
-                    ["Google Ads?", "Yes, Google and Meta experts."]
-                ],
-                formT: "Qualify your <span>Business</span>",
-                testiT: "Proof of <span>Impact</span>"
-            },
-            es: {
-                heroT: "El fin del <span>Amateurismo</span> en su Adquisición.",
-                heroD: "Sistemas de escala orientados a datos. Gestioné más de $3M transformando clics en ROI.",
-                heroB: "Consultoría VIP",
-                st1: "Campañas", st2: "Años", st3: "Gestionados", st4: "ROI Medio",
-                aboutT: "Ingeniería de <span>Tráfico Real</span>",
-                bio: "<p>Ademir Rodrigues es estratega de tráfico pago enfocado en generación de leads y ecosistemas de ventas.</p>",
-                motT: "¿Por qué <span>Elegirme?</span>",
-                mots: [
-                    {i: "fa-microchip", t: "Blindaje", d: "Contingencia para nichos sensibles."},
-                    {i: "fa-globe", t: "Global", d: "Experto en público inmigrante en EE.UU."},
-                    {i: "fa-chart-pie", t: "Escala", d: "Metodología para doblar el ROI."}
-                ],
-                planT: "Modelos de <span>Alianza</span>",
-                plans: [
-                    {t: "Diagnóstico", d: "Auditoría completa de su operación.", b: "Solicitar"},
-                    {t: "Gestión VIP", d: "Gestión Ads + Tracking API.", b: "Contratar"},
-                    {t: "Ingeniería", d: "Ecosistema global de escala.", b: "Consultar"}
-                ],
-                testis: [
-                    {p: "Facturación se duplicó en 60 días en EE.UU.", s: "Firma Inmigración"},
-                    {p: "ROI de 6x en el primer lanzamiento.", s: "Infoproductos"},
-                    {p: "Socio de negocios real, foco en lucro.", s: "Tech Startup"}
-                ],
-                faqT: "Dúvidas <span>Frequentes</span>",
-                faqs: [
-                    ["¿Cómo funciona el contrato?", "Ciclos mensuales enfocados en performance."],
-                    ["¿Inversión mínima?", "Recomendamos más de $1,000 para datos."],
-                    ["¿Hacen los anuncios?", "Damos dirección estratégica y guiones."],
-                    ["¿Nichos Black?", "Sí, con contingencia técnica."],
-                    ["¿Seguimiento?", "Dashboard exclusivo en tiempo real."],
-                    ["¿Internacional?", "Sí, experto en el mercado de EE.UU."],
-                    ["¿Google Ads?", "Sí, expertos en Google y Meta."]
-                ],
-                formT: "Califique su <span>Negocio</span>",
-                testiT: "Pruebas de <span>Impacto</span>"
+        // Animação de scroll
+        window.addEventListener('scroll', reveal);
+
+        function reveal() {
+            var reveals = document.querySelectorAll('.service-card, .differential-item, .step, .stat-item');
+            
+            for(var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var revealTop = reveals[i].getBoundingClientRect().top;
+                var revealPoint = 150;
+
+                if(revealTop < windowHeight - revealPoint) {
+                    reveals[i].classList.add('active');
+                }
             }
-        };
-
-        function changeLang(lang) {
-            const l = content[lang] || content.pt;
-            document.querySelectorAll('.lang-switcher button').forEach(b => b.classList.remove('active'));
-            document.getElementById(`btn-${lang}`).classList.add('active');
-
-            document.getElementById('hero-title').innerHTML = l.heroT;
-            document.getElementById('hero-desc').innerText = l.heroD;
-            document.getElementById('hero-btn').innerText = l.heroB;
-            document.getElementById('st1').innerText = l.st1;
-            document.getElementById('st2').innerText = l.st2;
-            document.getElementById('st3').innerText = l.st3;
-            document.getElementById('st4').innerText = l.st4;
-            document.getElementById('about-t').innerHTML = l.aboutT;
-            document.getElementById('bio-text').innerHTML = l.bio;
-            document.getElementById('mot-t').innerHTML = l.motT;
-            document.getElementById('p-t').innerHTML = l.planT;
-            document.getElementById('t-t').innerHTML = l.testiT;
-            document.getElementById('f-t').innerHTML = l.faqT;
-            document.getElementById('form-t').innerHTML = l.formT;
-
-            document.getElementById('mot-grid').innerHTML = l.mots.map(m => `<div class="card-item"><i class="fas ${m.i}"></i><h3>${m.t}</h3><p>${m.d}</p></div>`).join('');
-            document.getElementById('planGrid').innerHTML = l.plans.map(p => `<div class="card-item" style="text-align:left;"><h3>${p.t}</h3><p style="margin:10px 0;">${p.d}</p><a href="https://wa.me/5567981082158" class="btn-main" style="width:100%; justify-content:center; padding: 12px;">${p.b}</a></div>`).join('');
-            document.getElementById('testiTrack').innerHTML = l.testis.map(t => `<div class="testi-card"><p>"${t.p}"</p><span>${t.s}</span></div>`).join('');
-            document.getElementById('faqList').innerHTML = l.faqs.map(f => `<div class="faq-item" onclick="this.classList.toggle('active')"><div class="faq-question">${f[0]} <i class="fas fa-plus"></i></div><div class="faq-answer">${f[1]}</div></div>`).join('');
         }
 
-        const ctx = document.getElementById('performanceChart').getContext('2d');
-        new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ['S1', 'S2', 'S3', 'S4', 'S5', 'S6', 'S7', 'S8'],
-                datasets: [{
-                    label: 'ROI',
-                    data: [100, 150, 140, 220, 280, 350, 480, 620],
-                    borderColor: '#FF0000',
-                    fill: true,
-                    backgroundColor: 'rgba(255, 0, 0, 0.1)',
-                    tension: 0.4
-                }]
-            },
-            options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { display: false }, x: { grid: { display: false }, ticks: { color: '#666' } } } }
+        // Formulário
+        function enviarContato(event) {
+            event.preventDefault();
+            
+            var nome = document.getElementById('nome').value;
+            var whatsapp = document.getElementById('whatsapp').value;
+            var empresa = document.getElementById('empresa').value;
+            var mensagem = document.getElementById('mensagem').value;
+            
+            var texto = "Olá Ademir! Me chamo " + nome + 
+                       ". Meu WhatsApp: " + whatsapp + 
+                       (empresa ? ". Empresa: " + empresa : "") + 
+                       ". " + mensagem;
+            
+            var url = "https://wa.me/5567981082158?text=" + encodeURIComponent(texto);
+            
+            window.open(url, '_blank');
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
         });
 
-        let cur = 0;
-        setInterval(() => {
-            cur = (cur + 1) % 3;
-            document.getElementById('testiTrack').style.transform = `translateX(-${cur * 100}%)`;
-        }, 5000);
-
-        changeLang('pt');
-
-        document.getElementById('finalForm').onsubmit = (e) => {
-            e.preventDefault();
-            const n = document.getElementById('fnome').value;
-            const i = document.getElementById('finvest').value;
-            window.open(`https://wa.me/5567981082158?text=${encodeURIComponent('Olá Ademir! Me chamo ' + n + '. Investimento: ' + i + '. Solicito análise de escala.')}`);
-        }
+        // Loading bar animation
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.querySelector('.loading-bar').style.opacity = '0';
+            }, 1000);
+        });
     </script>
 </body>
 </html>
